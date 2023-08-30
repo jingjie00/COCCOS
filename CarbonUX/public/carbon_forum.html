@@ -25,9 +25,12 @@
   <link href="assets/vendor/quill/quill.bubble.css" rel="stylesheet">
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" rel="stylesheet" >
+  
 
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
+  
 
   <!-- =======================================================
   * Template Name: NiceAdmin
@@ -36,6 +39,7 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  
 </head>
 
 <body>
@@ -332,77 +336,67 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Share</h1>
+      <h1>News and Forum</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="carbon_dashboard.html">Home</a></li>
-          <li class="breadcrumb-item active">Share</li>
+          <li class="breadcrumb-item active">News and Forum</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
 
 
-    <section class="section">
-      <div class="row" style="margin-left: auto; margin-right: auto;">
-
-      <!-- Estimated Carbon Claiming Credit -->  
-      <div class="col-lg-5" style="height: 500px; text-align: center;">
-        <div class="card">
-          <div class="card-body" style="padding-top: 50px; padding-bottom: 50px;">
-            <h5 style="font-weight: bold;">Your remaining Carbon Credit</h5> 
-            <img src="assets/img/carbon-credit.png" style="height: 60px; width: 75px; vertical-align:bottom;">
-            <span style="font-size: 30px; font-weight: bold;">0.002 kg</span>          
-          </div>
-        </div>
-      </div>
-
-      <!-- Fill in Form -->
-      <div class="col-lg-6">
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title" style="margin-bottom:0%">Carbon Offset Credit Share Form</h5>
-              <div class="row">
-              <form class="row g-2">
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Send to</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Send to:" style="background-color: pink;">
-                    <button type="button" class="btn btn-secondary" style="background-color: #012970">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-qr-code-scan" viewBox="0 0 16 16">
-                        <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
-                        <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"/>
-                        <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
-                        <path d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z"/>
-                        <path d="M12 9h2V8h-2v1Z"/>
-                      </svg>
-                    </button>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <label for="inputAmount" class="form-label">Amount</label>
-                  <input type="text" class="form-control" id="inputAmount">
-                </div>
-                <div class="col-md-6">
-                  <label for="inputType" class="form-label">Type</label>
-                  <input type="text" class="form-control" id="inputType">
-                </div>
-                <div class="col-12">
-                  <label for="inputRemark" class="form-label">Remark</label>
-                  <textarea class="form-control" id="inputRemark" style="height: 100px;"></textarea>
-                </div>
-                <div class="text-center" style="margin-top: 50px;">
-                  <button type="submit" class="btn btn-primary">Submit</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
-                </div>
-              </form><!-- Vertical Form -->
-
+    <section class="section dashboard">
+      <div class="row">
+        <div class="wrapper">
+          <i id="left" class="fa-solid fa-angle-left"></i>
+          <ul class="carousell">
+            <li class="carousel-card">
+              <div class="img"><img src="assets/img/news1.png" alt="img" draggable="false"></div>
+              <div class="news-title">
+                <div class="imgontop"><img src="assets/img/news-logo1.png" alt="img" draggable="false"></div>
+                <h5>Global CO2 emissions rose less than initially feared in 2022 as clean energy growth offset much of the impact of greater coal ...</h5>
+                <a href="https://www.iea.org/news/global-co2-emissions-rose-less-than-initially-feared-in-2022-as-clean-energy-growth-offset-much-of-the-impact-of-greater-coal-and-oil-use"><span>... Read more</span></a>
               </div>
-            </div>
-          </div>
-      </div>
-
-    </div>
-    </section>
+            </li>
+            <li class="carousel-card">
+              <div class="img"><img src="assets/img/news2.png" alt="img" draggable="false"></div>
+              <div class="news-title">
+                <div class="imgontop"><img src="assets/img/news-logo2.png" alt="img" draggable="false"></div>
+                <h5>New Asia-based carbon standards body looks to decarbonise megacities</h5>
+                <a href="https://www.eco-business.com/news/new-asia-based-carbon-standards-body-looks-to-decarbonise-megacities/"><span style="bottom: 130px;">... Read more</span></a>
+              </div>
+            </li>
+            <li class="carousel-card">
+              <div class="img"><img src="assets/img/news5.jpg" alt="img" draggable="false"></div>
+              <div class="news-title">
+                <div class="imgontop"><img src="assets/img/news-logo5.png" alt="img" draggable="false"></div>
+                <h5>Carbon Registry: Carbonbase join forces with HBAR and ImpactX for digital solution</h5>
+                <a href="https://www.cryptopolitan.com/carbonbase-hbar-and-impactx-carbon-registry/"><span style="bottom: 130px;">... Read more</span></a>
+              </div>
+            </li>
+            <li class="carousel-card">
+              <div class="img"><img src="assets/img/news3.jpg" alt="img" draggable="false"></div>
+              <div class="news-title">
+                <div class="imgontop"><img src="assets/img/news-logo3.gif" alt="img" draggable="false"></div>
+                <h5>Carbon credits touted as saviour of coal-to-clean energy deals</h5>
+                <a href="https://www.climatechangenews.com/2023/06/21/carbon-credits-touted-as-saviour-of-coal-to-clean-energy-deals/"><span style="bottom: 105px;">... Read more</span></a>
+              </div>
+            </li>
+            <li class="carousel-card">
+              <div class="img"><img src="assets/img/news4.png" alt="img" draggable="false"></div>
+              <div class="news-title">
+                <div class="imgontop"><img src="assets/img/news-logo4.png" alt="img" draggable="false"></div>
+                <h5>The Flight to Quality in the Carbon Markets</h5>
+                <a href="https://carboncredits.com/the-flight-to-quality-in-the-carbon-offset-credit-markets-with-their-prices/"><span style="bottom: 105px;">... Read more</span></a>
+              </div>
+            </li>
+          </ul>
+          <i id="right" class="fa-solid fa-angle-right"></i>
+        </div>
+     </div>
+     
+   </section>
 
   </main><!-- End #main -->
 
