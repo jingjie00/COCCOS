@@ -1227,19 +1227,18 @@ h6 {
 --------------------------------------------------------------*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 .wrapper {
-  max-width: 1100px;
   width: 100%;
   position: relative;
 }
 .wrapper i {
   top: 50%;
-  height: 50px;
-  width: 50px;
+  height: 35px;
+  width: 35px;
   cursor: pointer;
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   position: absolute;
   text-align: center;
-  line-height: 50px;
+  line-height: 40px;
   background: #fff;
   border-radius: 50%;
   box-shadow: 0 3px 6px rgba(0,0,0,0.23);
@@ -1253,12 +1252,12 @@ h6 {
   left: -12px;
 }
 .wrapper i:last-child{
-  right: -22px;
+  right: -12px;
 }
 .wrapper .carousell{
   display: grid;
   grid-auto-flow: column;
-  grid-auto-columns: calc((100% / 3) - 12px);
+  grid-auto-columns: calc((100% / 2) - 12px);
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   gap: 16px;
@@ -1284,8 +1283,8 @@ h6 {
 
 .wrapper .carousell .carousel-card {
   scroll-snap-align: start;
-  height: 200px;
-  width: 340px;
+  height: 150px;
+  width: 100%;
   list-style: none;
   background: #fff;
   cursor: pointer;
@@ -1296,8 +1295,8 @@ h6 {
 }
 
 .wrapper .carousel-card .img img {
-  height: 200px;
-  width: 340px;
+  height: 150px;
+  width: 100%;
   border-radius: 8px;
   object-fit: cover;
   user-select: none;
@@ -1305,54 +1304,26 @@ h6 {
 }
 .wrapper .carousell .carousel-card .news-title .imgontop img{
   position:relative;
-  bottom: 160px;
+  bottom: 140px;
   left: 10px;
   height: 20px;
 }
 .wrapper .carousell .carousel-card .news-title h5 {
   position:relative;
-  bottom: 150px;
+  bottom: 130px;
   padding-right: 2%;
   left: 10px;
   color: rgb(255, 255, 255);
   font-weight: bolder;
-  font-size: 20px;
-}
-.wrapper .carousell .carousel-card .news-title span {
-  position:relative;
-  bottom: 150px;
-  left:240px;
-  color: #fff700;
   font-size: 15px;
 }
 
 /*--------------------------------------------------------------
 # Forum
 --------------------------------------------------------------*/
-.trending{
-  position: fixed;
-}
-.trending i{
-  color: rgb(255, 134, 86);
-}
-.trending .card-body{
-  padding-top: 20px;
-}
-.trending li{
-  font-size: smaller;
-}
-.trending span{
-  font-weight: bold;
-  font-size: 16px;
-}
-.trending a{
-  color: black;;
-  padding-right: 20px;
-}
 .forum .card-footer .bi-heart:hover, .bi-heart-fill{
   cursor:pointer;
 }
-
 
 
 
