@@ -409,10 +409,10 @@
 */
 (function() {
   "use strict";
-  const wrapper = document.querySelector(".wrapper");
-  const carousel = document.querySelector(".wrapper .carousell");
+  const wrapper = document.querySelector(".news-wrapper");
+  const carousel = document.querySelector(".news-wrapper .carousell");
   const firstCardWidth = carousel.querySelector(".carousel-card").offsetWidth;
-  const arrowBtns = document.querySelectorAll(".wrapper i");
+  const arrowBtns = document.querySelectorAll(".news-wrapper i");
   const carouselChildrens = [...carousel.children];
   
   let isDragging = false, isAutoPlay = true, startX, startScrollLeft, timeoutId;

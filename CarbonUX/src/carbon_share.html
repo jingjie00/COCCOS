@@ -51,21 +51,8 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
-
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
 
         <li class="nav-item dropdown">
 
@@ -278,15 +265,15 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="carbon_claim.html">
-            <i class="bi bi-pencil-square"></i>
+            <i class="bi bi-box2-heart"></i>
           <span>Claim</span>
         </a>
       </li><!-- End Claim Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="carbon_share.html">
-            <i class="bi bi-repeat"></i>
-          <span>Share</span>
+            <i class="bi bi-shop"></i>
+          <span>Sell</span>
         </a>
       </li><!-- End Share Page Nav -->
 
@@ -332,11 +319,11 @@
   <main id="main" class="main">
 
     <div class="pagetitle">
-      <h1>Share</h1>
+      <h1>Sell</h1>
       <nav>
         <ol class="breadcrumb">
           <li class="breadcrumb-item"><a href="carbon_dashboard.html">Home</a></li>
-          <li class="breadcrumb-item active">Share</li>
+          <li class="breadcrumb-item active">Sell</li>
         </ol>
       </nav>
     </div><!-- End Page Title -->
@@ -349,7 +336,7 @@
       <div class="col-lg-5" style="height: 500px; text-align: center;">
         <div class="card">
           <div class="card-body" style="padding-top: 50px; padding-bottom: 50px;">
-            <h5 style="font-weight: bold;">Your remaining Carbon Credit</h5> 
+            <h5 style="font-weight: bold;">Your available Carbon Credit</h5> 
             <img src="assets/img/carbon-credit.png" style="height: 60px; width: 75px; vertical-align:bottom;">
             <span style="font-size: 30px; font-weight: bold;">0.002 kg</span>          
           </div>
@@ -391,7 +378,7 @@
                   <textarea class="form-control" id="inputRemark" style="height: 100px;"></textarea>
                 </div>
                 <div class="text-center" style="margin-top: 50px;">
-                  <button type="submit" class="btn btn-primary">Submit</button>
+                  <button type="submit" class="btn btn-primary" style="background-color: rgb(1, 42, 112); border-color: rgb(1, 42, 112); ">Submit</button>
                   <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
               </form><!-- Vertical Form -->

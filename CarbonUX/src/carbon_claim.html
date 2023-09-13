@@ -53,21 +53,8 @@
       <i class="bi bi-list toggle-sidebar-btn"></i>
     </div><!-- End Logo -->
 
-    <div class="search-bar">
-      <form class="search-form d-flex align-items-center" method="POST" action="#">
-        <input type="text" name="query" placeholder="Search" title="Enter search keyword">
-        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
-      </form>
-    </div><!-- End Search Bar -->
-
     <nav class="header-nav ms-auto">
       <ul class="d-flex align-items-center">
-
-        <li class="nav-item d-block d-lg-none">
-          <a class="nav-link nav-icon search-bar-toggle " href="#">
-            <i class="bi bi-search"></i>
-          </a>
-        </li><!-- End Search Icon-->
 
         <li class="nav-item dropdown">
 
@@ -280,15 +267,15 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="carbon_claim.html">
-          <i class="bi bi-pencil-square"></i>
+          <i class="bi bi-box2-heart"></i>
           <span>Claim</span>
         </a>
       </li><!-- End Claim Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="carbon_share.html">
-          <i class="bi bi-repeat"></i>
-          <span>Share</span>
+          <i class="bi bi-shop"></i>
+          <span>Sell</span>
         </a>
       </li><!-- End Share Page Nav -->
 
@@ -374,8 +361,7 @@
                       </div>
                       <!-- QR scan -->
                       <!-- <button type="button" class="btn btn-secondary" style="background-color: #012970"> -->
-                      <button type="button" class="btn btn-secondary" id="chooseQRbtn"
-                        style="background-color: #012970">
+                      <button type="button" class="btn btn-secondary" id="chooseQRbtn" style="background-color: #012970">
                         <input type="file" id="inputQR" style="display: none;" accept="image/*">
                         <div id="errorMessage" style="color: red; display: none;">Please select a valid QR code
                           image.
@@ -523,7 +509,7 @@
                   </div>
 
                   <div class="text-center" style="margin-top: 50px;">
-                    <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="submitButton" style="background-color: rgb(1, 42, 112); border-color: rgb(1, 42, 112);">Submit</button>
                     <button type="reset" class="btn btn-secondary" id="resetButton">Reset</button>
                   </div>
                 </form>
