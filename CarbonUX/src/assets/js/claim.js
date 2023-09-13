@@ -1,17 +1,35 @@
 /////////////////// Display Success Message After Submit ///////////////////
 $(document).ready(function () {
-    $("#submitButton").click(function () {
+  // Add a click event listener to the submit button
+  $("#claimForm").submit(function (event) {
+    // Prevent the default form submission
+    event.preventDefault();
 
-      event.preventDefault();
-      $("#successAlert").fadeIn();
+    const form = document.getElementById("claimForm");
+    if (form.checkValidity()) {
+      // Display the success alert
+      $("#successAlert").css("display", "block");
+
+      // Scroll to the top of the page
       $("html, body").animate({scrollTop: 0}, "slow");
-      $("#message").text("Form submitted successfully!");
 
+      // Generate a claim successful message and display it in the alert
+      const claimMessage = "Your claim has been successfully submitted!";
+      $("#successAlert").find(".alert-message").text(claimMessage);
+
+      // Trigger the reset button after a delay (you can adjust the delay time)
       setTimeout(function () {
         $("#resetButton").trigger("click");
-      }, 2000); // 2000 milliseconds (2 seconds) delay
-    });
+      }, 0); // 2000 milliseconds (2 seconds) delay
+
+      setTimeout(function () {
+        $("#successAlert").css("display", "none");
+      }, 3000); // 2000 milliseconds (2 seconds) delay
+
+    }
   });
+
+});
 
 
   ///////////////////// Scan QR button  ///////////////////

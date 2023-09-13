@@ -15,7 +15,9 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.gstatic.com" rel="preconnect">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Nunito:300,300i,400,400i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i"
+    rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -265,42 +267,51 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="carbon_claim.html">
+<<<<<<< HEAD
             <i class="bi bi-box2-heart"></i>
+=======
+          <i class="bi bi-pencil-square"></i>
+>>>>>>> 7b80711bbfffa96d4c30dbc98066ee7ed5e86983
           <span>Claim</span>
         </a>
       </li><!-- End Claim Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="carbon_share.html">
+<<<<<<< HEAD
             <i class="bi bi-shop"></i>
           <span>Sell</span>
+=======
+          <i class="bi bi-repeat"></i>
+          <span>Share</span>
+>>>>>>> 7b80711bbfffa96d4c30dbc98066ee7ed5e86983
         </a>
       </li><!-- End Share Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-contact.html">
-            <i class="bi bi-chat-dots-fill"></i>
+          <i class="bi bi-chat-dots-fill"></i>
           <span>ChatBot</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-register.html">
-            <i class="bi bi-calendar3"></i>
+          <i class="bi bi-calendar3"></i>
           <span>Daily Check In</span>
         </a>
       </li><!-- End Daily Check In Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="pages-login.html">
-            <i class="bi bi-gift-fill"></i>
+          <i class="bi bi-gift-fill"></i>
           <span>Rewards</span>
         </a>
       </li><!-- End Rewards Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="carbon_forum.html">
-            <i class="bi bi-newspaper"></i>
+          <i class="bi bi-newspaper"></i>
           <span>News and Forum</span>
         </a>
       </li><!-- End Forum Page Nav -->
@@ -332,6 +343,7 @@
     <section class="section">
       <div class="row" style="margin-left: auto; margin-right: auto;">
 
+<<<<<<< HEAD
       <!-- Estimated Carbon Claiming Credit -->  
       <div class="col-lg-5" style="height: 500px; text-align: center;">
         <div class="card">
@@ -339,31 +351,66 @@
             <h5 style="font-weight: bold;">Your available Carbon Credit</h5> 
             <img src="assets/img/carbon-credit.png" style="height: 60px; width: 75px; vertical-align:bottom;">
             <span style="font-size: 30px; font-weight: bold;">0.002 kg</span>          
+=======
+        <!-- Success alert message-->
+        <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert"
+          style="display: none;">
+          <i class="bi bi-check-circle me-1"></i>
+          Your claim has been successfully submitted !
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="alertClose"></button> -->
+        </div>
+
+        <!-- Failure submit message-->
+        <div class="alert alert-danger alert-dismissible fade show" role="alert" id="insufficientAlert"
+          style="display: none;">
+          <i class="bi bi-exclamation-octagon me-1"></i>
+          Insufficient balance to transfer !
+          <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
+        </div>
+
+        <!-- Estimated Carbon Claiming Credit -->
+        <div class="col-lg-5" style="height: 500px; text-align: center;">
+          <div class="card">
+            <div class="card-body" style="padding-top: 50px; padding-bottom: 50px;">
+              <h5 style="font-weight: bold;">Your remaining Carbon Credit</h5>
+              <img src="assets/img/carbon-credit.png" style="height: 60px; width: 75px; vertical-align:bottom;">
+              <span style="font-size: 30px; font-weight: bold;" id="remainCredit">1.542 kg</span>
+            </div>
+>>>>>>> 7b80711bbfffa96d4c30dbc98066ee7ed5e86983
           </div>
         </div>
-      </div>
 
-      <!-- Fill in Form -->
-      <div class="col-lg-6">
+        <!-- Fill in Form -->
+        <div class="col-lg-6">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title" style="margin-bottom:0%">Carbon Offset Credit Share Form</h5>
               <div class="row">
-              <form class="row g-2">
-                <div class="col-12">
-                  <label for="inputNanme4" class="form-label">Send to</label>
-                  <div class="input-group">
-                    <input type="text" class="form-control" placeholder="Send to:" style="background-color: pink;">
-                    <button type="button" class="btn btn-secondary" style="background-color: #012970">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-qr-code-scan" viewBox="0 0 16 16">
-                        <path d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z"/>
-                        <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z"/>
-                        <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z"/>
-                        <path d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z"/>
-                        <path d="M12 9h2V8h-2v1Z"/>
-                      </svg>
-                    </button>
+                <form class="row g-2" method="POST" action="#" id="shareForm">
+
+                  <div class="col-12">
+                    <div class="input-group">
+                      <div class="form-floating">
+                        <input type="text" class="form-control" placeholder="Recipient Username"
+                          style="background-color: pink;" required>
+                        <label for="inputNanme4">Recipient Username</label>
+                      </div>
+                      <!-- <button type="button" class="btn btn-secondary" style="background-color: #012970">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
+                          class="bi bi-qr-code-scan" viewBox="0 0 16 16">
+                          <path
+                            d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z" />
+                          <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z" />
+                          <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z" />
+                          <path
+                            d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z" />
+                          <path d="M12 9h2V8h-2v1Z" />
+                        </svg>
+                      </button> -->
+                    </div>
+
                   </div>
+<<<<<<< HEAD
                 </div>
                 <div class="col-12">
                   <label for="inputAmount" class="form-label">Amount</label>
@@ -382,13 +429,43 @@
                   <button type="reset" class="btn btn-secondary">Reset</button>
                 </div>
               </form><!-- Vertical Form -->
+=======
+
+                  <div class="col-12">
+                    <div class="form-floating">
+                      <input type="number" class="form-control" id="inputAmount" placeholder="Amount" step="0.001"
+                        min="0.001" value="0">
+                      <label for="inputAmount">Amount</label>
+                    </div>
+                  </div>
+
+                  <!-- <div class="col-12">
+                    <div class="form-floating">
+                      <input type="text" class="form-control" id="inputType" placeholder="Type" required>
+                      <label for="inputType">Type</label>
+                    </div>
+                  </div> -->
+
+                  <div class="col-12">
+                    <div class="form-floating">
+                      <textarea class="form-control" id="inputRemark" style="height: 200px;"
+                        placeholder="Remark (Optional)"></textarea>
+                      <label for="inputRemark">Remark (Optional)</label>
+                    </div>
+                  </div>
+                  <div class="text-center" style="margin-top: 50px;">
+                    <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+                    <button type="reset" class="btn btn-secondary" id="resetButton">Reset</button>
+                  </div>
+                </form><!-- Vertical Form -->
+>>>>>>> 7b80711bbfffa96d4c30dbc98066ee7ed5e86983
 
               </div>
             </div>
           </div>
-      </div>
+        </div>
 
-    </div>
+      </div>
     </section>
 
   </main><!-- End #main -->
@@ -396,7 +473,8 @@
   <!-- ======= Footer ======= -->
   <footer id="footer" class="footer">
     <div class="copyright">
-      &copy; Copyright <strong><span style="color: black;">Carbon</span><span style="color:rgb(255, 0, 0)">UX</span></strong>. All Rights Reserved
+      &copy; Copyright <strong><span style="color: black;">Carbon</span><span
+          style="color:rgb(255, 0, 0)">UX</span></strong>. All Rights Reserved
     </div>
     <div class="credits">
       <!-- All the links in the footer should remain intact. -->
@@ -406,7 +484,8 @@
     </div>
   </footer><!-- End Footer -->
 
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i
+      class="bi bi-arrow-up-short"></i></a>
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
@@ -420,6 +499,47 @@
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+      // Add a click event listener to the submit button
+      $("#shareForm").submit(function (event) {
+        // Prevent the default form submission
+        event.preventDefault();
+
+        const form = document.getElementById("shareForm");
+        const remainText = document.getElementById("remainCredit");
+        const remainedCredit = remainText.textContent.match(/\d+\.\d+/);
+        const sharedCredit = document.getElementById("inputAmount").value;
+        var alertType = "";
+
+        if (form.checkValidity()) {
+
+          if ((sharedCredit <= remainedCredit[0])) {
+            alertType = "#successAlert"
+            remainText.innerHTML = (remainedCredit[0] - sharedCredit) + " kg"
+          } else {
+            alertType = "#insufficientAlert"
+          }
+
+          $(alertType).css("display", "block");
+          $("html, body").animate({scrollTop: 0}, "slow");
+          setTimeout(function () {
+            $(alertType).css("display", "none");
+          }, 3000); // 2000 milliseconds (2 seconds) delay
+
+          // Trigger the reset button after a delay (you can adjust the delay time)
+          setTimeout(function () {
+            $("#resetButton").trigger("click");
+          }, 0); // 2000 milliseconds (2 seconds) delay
+
+
+        }
+      });
+    });
+
+  </script>
 
 </body>
 
