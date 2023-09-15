@@ -30,6 +30,11 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
+  <script
+  src="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.js"></script>
+<link type="text/css" rel="stylesheet"
+  href="https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css" />
+
 </head>
 
 <body>
@@ -48,7 +53,6 @@
               <img class="animate__animated animate__fadeInDown" src="assets/img/CarbonUX-logo2.png" style="width:200px;height:200px;">
               <h2 class="animate__animated animate__fadeInDown">Welcome to Carbon<span style="color:rgb(255, 0, 0)">UX</span></h2>
               <p class="animate__animated animate__fadeInUp" style="padding-bottom: 50px;">Redefine your carbon emission control experiece.</p>
-              <p><a href="carbon_register.html" class="btn-get-started animate__animated animate__fadeInUp scrollto">Continue</a></p>
               <div class="container" id ="login" style="margin-top: 50px;">
                 <div id="firebaseui-auth-container"></div>
               </div>
@@ -172,6 +176,68 @@
 	"configuration_version":"3.0"
 };
   </script>
+
+<script
+src="https://www.gstatic.com/firebasejs/9.13.0/firebase-app-compat.js"></script>
+<script
+src="https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics-compat.js"></script>
+<script
+src="https://www.gstatic.com/firebasejs/9.13.0/firebase-auth-compat.js"></script>
+
+<script type="module">
+ const firebaseConfig = {
+    apiKey: "AIzaSyB9uNnnfi1KaKiUyC5wBnaARiXyp0h4W0E",
+    authDomain: "coccos.jingjietan.com",
+    projectId: "coc-cos",
+    storageBucket: "coc-cos.appspot.com",
+    messagingSenderId: "292386526510",
+    appId: "1:292386526510:web:1b0c7fa313fab62d4d56bf",
+    measurementId: "G-4L42J0Q8J4"
+  };
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const analytics = firebase.analytics(app);
+const auth = firebase.auth(app);
+
+console.log(auth);
+
+var ui = new firebaseui.auth.AuthUI(auth);
+
+var uiConfig = {
+	callbacks: {
+		signInSuccessWithAuthResult: function(authResult, redirectUrl) {
+		// User successfully signed in.
+		// Return type determines whether we continue the redirect automatically
+		// or whether we leave that to developer to handle.    
+		return true;
+	},
+	uiShown: function() {
+	// The widget is rendered.
+	// Hide the loader.
+	document.getElementById('loader').style.display = 'none';
+	}
+},
+// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
+signInFlow: 'popup',
+autoUpgradeAnonymousUsers: true,
+signInSuccessUrl: './carbon_dashboard.html',
+signInOptions: [
+	// Leave the lines as is for the providers you want to offer your users.
+	
+	firebase.auth.EmailAuthProvider.PROVIDER_ID,
+	firebase.auth.PhoneAuthProvider.PROVIDER_ID,
+	firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
+],
+// Terms of service url.
+tosUrl: 'privacy.html',
+// Privacy policy url.
+privacyPolicyUrl: 'privacy.html'
+};
+
+ui.start('#firebaseui-auth-container', uiConfig);
+
+</script>
 
 </body>
 
