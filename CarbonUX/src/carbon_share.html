@@ -28,6 +28,7 @@
   <link href="assets/vendor/remixicon/remixicon.css" rel="stylesheet">
   <link href="assets/vendor/simple-datatables/style.css" rel="stylesheet">
 
+
   <!-- Template Main CSS File -->
   <link href="assets/css/style.css" rel="stylesheet">
 
@@ -267,24 +268,15 @@
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="carbon_claim.html">
-<<<<<<< HEAD
-            <i class="bi bi-box2-heart"></i>
-=======
-          <i class="bi bi-pencil-square"></i>
->>>>>>> 7b80711bbfffa96d4c30dbc98066ee7ed5e86983
+          <i class="bi bi-box2-heart"></i>
           <span>Claim</span>
         </a>
       </li><!-- End Claim Page Nav -->
 
       <li class="nav-item">
         <a class="nav-link collapsed" href="carbon_share.html">
-<<<<<<< HEAD
-            <i class="bi bi-shop"></i>
+          <i class="bi bi-shop"></i>
           <span>Sell</span>
-=======
-          <i class="bi bi-repeat"></i>
-          <span>Share</span>
->>>>>>> 7b80711bbfffa96d4c30dbc98066ee7ed5e86983
         </a>
       </li><!-- End Share Page Nav -->
 
@@ -343,20 +335,11 @@
     <section class="section">
       <div class="row" style="margin-left: auto; margin-right: auto;">
 
-<<<<<<< HEAD
-      <!-- Estimated Carbon Claiming Credit -->  
-      <div class="col-lg-5" style="height: 500px; text-align: center;">
-        <div class="card">
-          <div class="card-body" style="padding-top: 50px; padding-bottom: 50px;">
-            <h5 style="font-weight: bold;">Your available Carbon Credit</h5> 
-            <img src="assets/img/carbon-credit.png" style="height: 60px; width: 75px; vertical-align:bottom;">
-            <span style="font-size: 30px; font-weight: bold;">0.002 kg</span>          
-=======
         <!-- Success alert message-->
         <div class="alert alert-success alert-dismissible fade show" role="alert" id="successAlert"
           style="display: none;">
           <i class="bi bi-check-circle me-1"></i>
-          Your claim has been successfully submitted !
+          The transaction is completed !
           <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" id="alertClose"></button> -->
         </div>
 
@@ -364,101 +347,105 @@
         <div class="alert alert-danger alert-dismissible fade show" role="alert" id="insufficientAlert"
           style="display: none;">
           <i class="bi bi-exclamation-octagon me-1"></i>
-          Insufficient balance to transfer !
+          Insufficient balance to Sell !
           <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
         </div>
 
         <!-- Estimated Carbon Claiming Credit -->
-        <div class="col-lg-5" style="height: 500px; text-align: center;">
+        <div class="col-lg-5" style="height: 520px; text-align: center;">
           <div class="card">
             <div class="card-body" style="padding-top: 50px; padding-bottom: 50px;">
               <h5 style="font-weight: bold;">Your remaining Carbon Credit</h5>
               <img src="assets/img/carbon-credit.png" style="height: 60px; width: 75px; vertical-align:bottom;">
-              <span style="font-size: 30px; font-weight: bold;" id="remainCredit">1.542 kg</span>
+              <span style="font-size: 30px; font-weight: bold;" id="remainCredit">4.000 kg</span>
             </div>
->>>>>>> 7b80711bbfffa96d4c30dbc98066ee7ed5e86983
           </div>
+
+
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Consumer Carbon Credit Market Price</h5>
+              <!-- Line Chart -->
+              <canvas id="SellChart" style="max-height: 400px;"></canvas>
+              <script>
+                document.addEventListener("DOMContentLoaded", () => {
+                  new Chart(document.querySelector('#SellChart'), {
+                    type: 'line',
+                    data: {
+                      labels: ['12 Sept', '13 Sept', '14 Sept', '15 Sept', '16 Sept', '17 Sept', '18 Sept'],
+                      datasets: [{
+                        label: 'Sell Price',
+                        data: [3.19, 3.21, 3.35, 3.40, 3.42, 3.33, 3.2],
+                        fill: false,
+                        borderColor: 'lightblue',
+                        tension: 0.1,
+                      }]
+                    },
+                  });
+
+                });
+              </script>
+              <!-- End Line CHart -->
+
+            </div>
+          </div>
+
         </div>
 
         <!-- Fill in Form -->
         <div class="col-lg-6">
+
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title" style="margin-bottom:0%">Carbon Offset Credit Share Form</h5>
+              <!-- <h5 class="card-title" style="margin-bottom:0%">Carbon Offset Credit Share Form</h5> -->
               <div class="row">
                 <form class="row g-2" method="POST" action="#" id="shareForm">
 
-                  <div class="col-12">
-                    <div class="input-group">
-                      <div class="form-floating">
-                        <input type="text" class="form-control" placeholder="Recipient Username"
-                          style="background-color: pink;" required>
-                        <label for="inputNanme4">Recipient Username</label>
-                      </div>
-                      <!-- <button type="button" class="btn btn-secondary" style="background-color: #012970">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor"
-                          class="bi bi-qr-code-scan" viewBox="0 0 16 16">
-                          <path
-                            d="M0 .5A.5.5 0 0 1 .5 0h3a.5.5 0 0 1 0 1H1v2.5a.5.5 0 0 1-1 0v-3Zm12 0a.5.5 0 0 1 .5-.5h3a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-1 0V1h-2.5a.5.5 0 0 1-.5-.5ZM.5 12a.5.5 0 0 1 .5.5V15h2.5a.5.5 0 0 1 0 1h-3a.5.5 0 0 1-.5-.5v-3a.5.5 0 0 1 .5-.5Zm15 0a.5.5 0 0 1 .5.5v3a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1 0-1H15v-2.5a.5.5 0 0 1 .5-.5ZM4 4h1v1H4V4Z" />
-                          <path d="M7 2H2v5h5V2ZM3 3h3v3H3V3Zm2 8H4v1h1v-1Z" />
-                          <path d="M7 9H2v5h5V9Zm-4 1h3v3H3v-3Zm8-6h1v1h-1V4Z" />
-                          <path
-                            d="M9 2h5v5H9V2Zm1 1v3h3V3h-3ZM8 8v2h1v1H8v1h2v-2h1v2h1v-1h2v-1h-3V8H8Zm2 2H9V9h1v1Zm4 2h-1v1h-2v1h3v-2Zm-4 2v-1H8v1h2Z" />
-                          <path d="M12 9h2V8h-2v1Z" />
-                        </svg>
-                      </button> -->
-                    </div>
-
-                  </div>
-<<<<<<< HEAD
-                </div>
-                <div class="col-12">
-                  <label for="inputAmount" class="form-label">Amount</label>
-                  <input type="text" class="form-control" id="inputAmount">
-                </div>
-                <div class="col-md-6">
-                  <label for="inputType" class="form-label">Type</label>
-                  <input type="text" class="form-control" id="inputType">
-                </div>
-                <div class="col-12">
-                  <label for="inputRemark" class="form-label">Remark</label>
-                  <textarea class="form-control" id="inputRemark" style="height: 100px;"></textarea>
-                </div>
-                <div class="text-center" style="margin-top: 50px;">
-                  <button type="submit" class="btn btn-primary" style="background-color: rgb(1, 42, 112); border-color: rgb(1, 42, 112); ">Submit</button>
-                  <button type="reset" class="btn btn-secondary">Reset</button>
-                </div>
-              </form><!-- Vertical Form -->
-=======
-
-                  <div class="col-12">
+                  <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="number" class="form-control" id="inputAmount" placeholder="Amount" step="0.001"
-                        min="0.001" value="0">
-                      <label for="inputAmount">Amount</label>
+                      <input type="number" class="form-control" id="inputPrice" placeholder="Current Sell Price"
+                        step="0.1" min="0.1" value="3.2" disabled>
+                      <label for="inputPrice">Current Sell Price (Kg)</label>
                     </div>
                   </div>
 
-                  <!-- <div class="col-12">
+                  <div class="col-md-6">
                     <div class="form-floating">
-                      <input type="text" class="form-control" id="inputType" placeholder="Type" required>
-                      <label for="inputType">Type</label>
+                      <input type="number" class="form-control" id="inputAmount" placeholder="Carbon Amount (Kg)"
+                        step="0.001" min="0.001" value="0">
+                      <label for="inputAmount">Carbon Amount (Kg)</label>
                     </div>
-                  </div> -->
+                  </div>
+
+                  <div class="row md-6" style="margin-top:15px;">
+                    <label for="inputText" class="col-sm-7 col-form-label">Estimated Remaining Credit</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control"
+                        style="text-align:right; border:none ;color:green; background-color: white;" id="estCredit"
+                        value="0 kg" disabled>
+                    </div>
+                    <label for="inputText" class="col-sm-7 col-form-label">Estimated Earning</label>
+                    <div class="col-md-4">
+                      <input type="text" class="form-control"
+                        style="text-align:right; border:none; color:green;background-color: white; " id="estEarn"
+                        value="$ 0" disabled>
+                    </div>
+                  </div>
+
 
                   <div class="col-12">
                     <div class="form-floating">
-                      <textarea class="form-control" id="inputRemark" style="height: 200px;"
+                      <textarea class="form-control" id="inputRemark" style="height: 200px;margin-top: 10px;"
                         placeholder="Remark (Optional)"></textarea>
                       <label for="inputRemark">Remark (Optional)</label>
                     </div>
                   </div>
                   <div class="text-center" style="margin-top: 50px;">
-                    <button type="submit" class="btn btn-primary" id="submitButton">Submit</button>
+                    <button type="submit" class="btn btn-primary" id="submitButton"
+                      style="background-color: rgb(1, 42, 112); border-color: rgb(1, 42, 112); ">Submit</button>
                     <button type="reset" class="btn btn-secondary" id="resetButton">Reset</button>
                   </div>
                 </form><!-- Vertical Form -->
->>>>>>> 7b80711bbfffa96d4c30dbc98066ee7ed5e86983
 
               </div>
             </div>
@@ -466,6 +453,7 @@
         </div>
 
       </div>
+
     </section>
 
   </main><!-- End #main -->
@@ -496,6 +484,7 @@
   <script src="assets/vendor/simple-datatables/simple-datatables.js"></script>
   <script src="assets/vendor/tinymce/tinymce.min.js"></script>
   <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
@@ -515,10 +504,12 @@
         var alertType = "";
 
         if (form.checkValidity()) {
-
-          if ((sharedCredit <= remainedCredit[0])) {
+          console.log(sharedCredit)
+          console.log(remainedCredit[0])
+          console.log((remainedCredit[0] - sharedCredit) >= 0)
+          if ((remainedCredit[0] - sharedCredit) >= 0) {
             alertType = "#successAlert"
-            remainText.innerHTML = (remainedCredit[0] - sharedCredit) + " kg"
+            remainText.innerHTML = (remainedCredit[0] - sharedCredit).toFixed(3) + " kg"
           } else {
             alertType = "#insufficientAlert"
           }
@@ -539,6 +530,28 @@
       });
     });
 
+    const inputAmt = document.getElementById('inputAmount');
+    inputAmt.addEventListener('change', function () {
+      var inputPrice = document.getElementById('inputPrice');
+      var estCredit = document.getElementById('estCredit');
+      var estEarn = document.getElementById('estEarn');
+
+      var price = parseFloat(inputPrice.value);
+      let remainCredit = 0;
+      let estimateEarn = 0;
+
+      var CurText = document.getElementById("remainCredit");
+      var CurCredit = CurText.textContent.match(/\d+\.\d+/);
+
+      remainCredit = CurCredit[0] - parseFloat(inputAmt.value);
+      estimateEarn = parseFloat(inputAmt.value) * price;
+      console.log(remainCredit)
+      console.log(estimateEarn)
+
+      estCredit.value = remainCredit.toFixed(3) + " kg"
+      estEarn.value = "$ " + estimateEarn.toFixed(2)
+
+    });
   </script>
 
 </body>
