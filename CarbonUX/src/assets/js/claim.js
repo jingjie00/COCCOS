@@ -26,6 +26,24 @@ $(document).ready(function () {
         $("#successAlert").css("display", "none");
       }, 3000); // 2000 milliseconds (2 seconds) delay
 
+
+
+      //------------------------ Update dashboard Total Claim ----------------------------//
+      // Retrieve Total Claim and Current Claim
+      var total_claim = parseFloat(localStorage.getItem("credit_claim")) || 0;
+      var current_claim = parseFloat(localStorage.getItem("stored_credit_claim"));
+      var new_total_claim = parseFloat(total_claim + current_claim);
+
+      // Update Total Credit Claim to dashboard
+      localStorage.setItem("credit_claim", new_total_claim.toFixed(3));
+
+      // Retrive Total Carbon Credit Balance
+      var total_credit = parseFloat(localStorage.getItem("credit_balance")) || 0;
+      var new_total_credit = parseFloat(total_credit + current_claim);
+
+      // Update Total Credit Balance to dashboard
+      localStorage.setItem("credit_balance", new_total_credit.toFixed(3));
+
     }
   });
 
@@ -72,7 +90,11 @@ $(document).ready(function () {
               // console.log('QR Code Data:', qrCodeData.data);
               estimateCarbon.textContent = qrCodeData.data + " kg";
               claimingCode.value = fileNameWithoutExtension
-
+  
+              // Store Temporary Carbon Credit Claim
+              var carbon = qrCodeData.data;
+              localStorage.setItem("stored_credit_claim", carbon.toFixed(3));
+              
             } else {
               errorMessage.style.display = 'block';
             }
@@ -174,6 +196,9 @@ $(document).ready(function () {
 
     // Update the estimateCarbon span with the calculated value
     estimateCarbon.textContent = carbonCredit.toFixed(3) + ' kg';
+          
+    // Store Temporary Carbon Credit Claim
+    localStorage.setItem("stored_credit_claim", carbonCredit.toFixed(3));
   }
 
   inputKg.addEventListener('input', updateRecycleCarbon);
@@ -196,6 +221,9 @@ $(document).ready(function () {
     if (newElectricConsumption < perCapita2022) {
       const result = (perCapita2022 - newElectricConsumption) * 0.001;
       estimateCarbon.textContent = result.toFixed(3) + ' kg';
+
+      // Store Temporary Carbon Credit Claim
+      localStorage.setItem("stored_credit_claim", result.toFixed(3));
     } else {
       estimateCarbon.textContent = '0.000 kg';
     }
@@ -223,6 +251,9 @@ $(document).ready(function () {
       // Calculate the result using the selected transport's constant
       const result = transportConstants[selectedTransport] * distance;
       estimateCarbon.textContent = result.toFixed(3) + ' kg';
+
+      // Store Temporary Carbon Credit Claim
+      localStorage.setItem("stored_credit_claim", result.toFixed(3));
     }
   }
 

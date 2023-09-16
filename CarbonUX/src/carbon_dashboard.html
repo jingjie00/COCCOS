@@ -349,7 +349,7 @@
       <div class="statistic-wrapper">
         <div class="card uppercard">
           <h6 style="margin-bottom: 0%;">Carbon Credit Balance</h6>
-          <p><span>4.00</span> kg</p>
+          <p><span id ="credit_balance">0.000</span> kg</p>
           <div class="row">
             <div class = "col"><a href="carbon_claim.html"><button type="button" class="btn btn-primary"><i class="bi bi-box2-heart"></i>&emsp;Claim</button></a></div>
             <div class = "col"><a href="carbon_share.html"><button type="button" class="btn btn-primary"><i class="bi bi-shop"></i>&emsp;Sell</button></a></div>
@@ -360,15 +360,15 @@
           <table>
             <tr>
               <td style="font-size: 14px;">Total Carbon Credit Claimed</td>
-              <td class="amount" style="color: green;">+ <span id ="totalcarboncredit_claim">10.00</span> kg</td>
+              <td class="amount" style="color: green;">+ <span id ="credit_claim">0.000</span> kg</td>
             </tr>
             <tr>
               <td style="font-size: 14px;">Total Carbon Credit Sold</td>
-              <td class="amount" style="color: red;">- <span id ="totalcarboncredit_sold">6.00 kg</span></td>
+              <td class="amount" style="color: red;">- <span id ="credit_sold">0.000 </span> kg</td>
             </tr>
             <tr>
               <td style="font-size: 14px;">Total Money Earned</td>
-              <td class="amount">$ <span id ="totalmoney_earn">12.00</span></td>
+              <td class="amount">$ <span id ="total_earn">0.00</span></td>
             </tr>
           </table>
 
@@ -438,10 +438,27 @@
     document.addEventListener('DOMContentLoaded', updateCoinsCount);
   </script>
   
+
+  <!----------------------------- Update Dashboard ----------------------------------->
+  <script>
+    var creditBalance = parseFloat(localStorage.getItem("credit_balance")) || 0;
+    document.getElementById("credit_balance").textContent = creditBalance.toFixed(3);
+
+    var creditClaim = parseFloat(localStorage.getItem("credit_claim")) || 0;
+    document.getElementById("credit_claim").textContent = creditClaim.toFixed(3);
+
+    var creditSold = parseFloat(localStorage.getItem("credit_sold")) || 0;
+    document.getElementById("credit_sold").textContent = creditSold.toFixed(3);
+
+    var totalEarn = parseFloat(localStorage.getItem("total_earn")) || 0;
+    document.getElementById("total_earn").textContent = totalEarn.toFixed(2);
+  </script>
   
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="assets/js/share.js"></script>
 
 </body>
 
