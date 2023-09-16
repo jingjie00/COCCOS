@@ -40,28 +40,84 @@
 </head>
 
 <body>
-  <!-- ======= Hero Section ======= -->
-  <section id="hero" style="height:100vh">
-    <div id="heroCarousel" data-bs-interval="5000" class="carousel slide carousel-fade" data-bs-ride="carousel">
-
-      <ol class="carousel-indicators" id="hero-carousel-indicators"></ol>
-
-      <div class="carousel-inner" role="listbox">
-
-        <!-- Slide 1 -->
-        <div class="carousel-item active" style="background-image: url(assets/img/slide/slide-1.png)">
-          <div class="carousel-container">
-            <div class="container">
-              
+  <section class="section register min-vh-100 d-flex flex-column align-items-center justify-content-center py-4">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-4 col-md-6 d-flex flex-column align-items-center justify-content-center">
+          <div class="d-flex justify-content-center py-4">
+            <a href="carbon_homepage.html" class="logo d-flex align-items-center w-auto">
+              <img src="assets/img/CarbonUX-logo.png" alt="" style="height: 35px;width: 40px;">
+              <span class="d-none d-lg-block" style="color: rgb(0, 0, 0); font-size: 30px; font-family: Raleway, sans-serif; font-weight: bold;">Carbon</span><span style="color:rgb(255, 0, 0); font-size: 30px; font-family: Raleway, sans-serif; font-weight: bold;">UX</span>
+            </a>
+          </div><!-- End Logo -->
+  
+          <div class="card mb-3">
+            <div class="card-body">
+              <div class="pt-4 pb-2">
+                <h5 class="card-title text-center pb-0 fs-4">Realname Authentication</h5>
+                <p class="text-center small" style="color: black;">Please provide the following information for authentication.</p>
               </div>
+  
+              <form class="row g-3 needs-validation" novalidate style="text-align: left;">
+                <div class="col-12">
+                  <label for="yourName" class="form-label">Name</label>
+                  <input type="text" name="name" class="form-control" id="yourName" required>
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+  
+
+  
+                <div class="col-12">
+                  <label for="yourNumber" class="form-label">Identity Card or Passport Number</label>
+                  <input type="text" name="number" class="form-control" id="yourNumber" required>
+                  <div class="invalid-feedback">Please enter your number.</div>
+                </div>
+  
+                <div class="col-12">
+                  <label for="uploadDocument" class="form-label">Upload Supporting Document</label>
+                  <input type="file" class="form-control" id="uploadDocument" required>
+                  <div class="invalid-feedback">Please upload a document.</div>
+                </div>
+  
+                <div class="col-12">
+                  <button class="btn btn-primary w-100" type="submit">Submit</button>
+                </div>
+  
+              </form>
+            </div>
+
+<!-- Add this modal to your HTML -->
+<div class="modal fade" id="successModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Success!</h5>
+      </div>
+      <div class="modal-body">
+        You have successfully submitted the form. You will receive email once you get approved.<br>
+        You will now navigate to the homepage.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary" id="okButton" data-dismiss="modal" >OK</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+            
+  
+            <div class="credits">
+              <!-- All the links in the footer should remain intact. -->
+              <!-- You can delete the links only if you purchased the pro version. -->
+              <!-- Licensing information: https://bootstrapmade.com/license/ -->
+              <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/nice-admin-bootstrap-admin-html-template/ -->
             </div>
           </div>
         </div>
-
       </div>
-
     </div>
-  </section><!-- End Hero -->
+  </section>
+  
 
   <!-- ======= Footer ======= -->
   <footer id="footerrr">
@@ -93,6 +149,55 @@
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
 
+  <script>
+    // Function to validate the form
+    function validateForm() {
+      const nameField = document.getElementById('yourName');
+      const numberField = document.getElementById('yourNumber');
+  
+      // Check if the required fields are not empty
+      if (nameField.value.trim() === '' || numberField.value.trim() === '') {
+        alert('Please fill in all required fields.');
+        return false; // Prevent form submission
+      }
+  
+      return true; // Allow form submission
+    }
+  
+    // Function to show the success modal
+    function showSuccessModal() {
+      const modal = document.getElementById('successModal');
+      modal.classList.add('show'); // Show the modal
+      modal.style.display = 'block';
+      modal.removeAttribute('aria-hidden');
+    }
+  
+    // Attach an event listener to the form's submit button
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('form');
+  
+      if (form) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault(); // Prevent the default form submission behavior
+          if (validateForm()) {
+            showSuccessModal(); // Show the success modal if validation passes
+          }
+        });
+      }
+  
+      // Attach an event listener to the "OK" button on the modal
+      const okButton = document.getElementById('okButton');
+      if (okButton) {
+        okButton.addEventListener('click', function () {
+          // Redirect to the sign-in page
+          window.location.href = 'carbonux_homepage.html';
+        });
+      }
+    });
+  </script>
+  
+
+  </script>
   <script>
     var agConnectConfig = 
 {
@@ -174,68 +279,6 @@
 	"configuration_version":"3.0"
 };
   </script>
-
-<script
-src="https://www.gstatic.com/firebasejs/9.13.0/firebase-app-compat.js"></script>
-<script
-src="https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics-compat.js"></script>
-<script
-src="https://www.gstatic.com/firebasejs/9.13.0/firebase-auth-compat.js"></script>
-
-<script type="module">
- const firebaseConfig = {
-    apiKey: "AIzaSyB9uNnnfi1KaKiUyC5wBnaARiXyp0h4W0E",
-    authDomain: "coccos.jingjietan.com",
-    projectId: "coc-cos",
-    storageBucket: "coc-cos.appspot.com",
-    messagingSenderId: "292386526510",
-    appId: "1:292386526510:web:1b0c7fa313fab62d4d56bf",
-    measurementId: "G-4L42J0Q8J4"
-  };
-
-// Initialize Firebase
-const app = firebase.initializeApp(firebaseConfig);
-const analytics = firebase.analytics(app);
-const auth = firebase.auth(app);
-
-console.log(auth);
-
-var ui = new firebaseui.auth.AuthUI(auth);
-
-var uiConfig = {
-	callbacks: {
-		signInSuccessWithAuthResult: function(authResult, redirectUrl) {
-		// User successfully signed in.
-		// Return type determines whether we continue the redirect automatically
-		// or whether we leave that to developer to handle.    
-		return true;
-	},
-	uiShown: function() {
-	// The widget is rendered.
-	// Hide the loader.
-	document.getElementById('loader').style.display = 'none';
-	}
-},
-// Will use popup for IDP Providers sign-in flow instead of the default, redirect.
-signInFlow: 'popup',
-autoUpgradeAnonymousUsers: true,
-signInSuccessUrl: './carbonux_real_name.html',
-signInOptions: [
-	// Leave the lines as is for the providers you want to offer your users.
-	
-	firebase.auth.EmailAuthProvider.PROVIDER_ID,
-	firebase.auth.PhoneAuthProvider.PROVIDER_ID,
-	firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
-],
-// Terms of service url.
-tosUrl: 'privacy.html',
-// Privacy policy url.
-privacyPolicyUrl: 'privacy.html'
-};
-
-ui.start('#firebaseui-auth-container', uiConfig);
-
-</script>
 
 </body>
 
