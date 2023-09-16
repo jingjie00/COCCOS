@@ -242,7 +242,7 @@
             </li>
 
             <li>
-              <a class="dropdown-item d-flex align-items-center" href="#">
+              <a id="signout" class="dropdown-item d-flex align-items-center" href="#">
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -452,6 +452,13 @@
 
     var totalEarn = parseFloat(localStorage.getItem("total_earn")) || 0;
     document.getElementById("total_earn").textContent = totalEarn.toFixed(2);
+  </script>
+
+  <script>
+    // when signout button pressed, go back to carbon_homepage
+    document.getElementById("signout").addEventListener("click", function() {
+      window.location.href = "carbon_homepage.html";
+    });
   </script>
   
 
