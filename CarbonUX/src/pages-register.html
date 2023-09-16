@@ -36,6 +36,10 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Daily Check-In</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -47,37 +51,62 @@
       margin: 0 auto;
     }
 
-    .day-button {
+    .day-box {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border: 1px solid #ccc;
+      padding: 10px;
       margin-bottom: 10px;
     }
 
-    .day-button button {
-      padding: 10px 20px;
-      font-size: 16px;
+    .day-box button {
+      padding: 5px 10px;
+      font-size: 14px;
       cursor: pointer;
     }
 
-    .day-button button[disabled] {
+    .day-box button[disabled] {
+      background-color: #ccc;
+      cursor: not-allowed;
+    }
+
+    .game-button[disabled] {
       background-color: #ccc;
       cursor: not-allowed;
     }
   </style>
 
   <script>
+    function isNextDay(previousDate) {
+      const currentDate = new Date();
+      previousDate = new Date(previousDate);
+      return currentDate.getDate() !== previousDate.getDate() ||
+        currentDate.getMonth() !== previousDate.getMonth() ||
+        currentDate.getFullYear() !== previousDate.getFullYear();
+    }
+
     function collectCoins(day) {
-      const coinsPerDay = 5; // You can adjust this based on your logic
+      const coinsPerDay = day * 2; // Coins increase with each day
       let currentCoins = parseInt(localStorage.getItem('coinsCount')) || 0;
 
       // Check if the user already claimed coins for this day
       const claimedKey = `claimedDay${day}`;
       if (localStorage.getItem(claimedKey)) {
-        alert('Coins for this day have already been claimed.');
+        alert(`You have already redeemed ${coinsPerDay} coins for this day.`);
+        return;
+      }
+
+      // Check if it's the next day
+      if (day > 1 && !isNextDay(localStorage.getItem('lastClaimDate'))) {
+        alert('You can only claim coins for the next consecutive day.');
         return;
       }
 
       // Claim coins for the day
-      currentCoins += coinsPerDay * day;
+      currentCoins += coinsPerDay;
       localStorage.setItem('coinsCount', currentCoins);
+      localStorage.setItem('lastClaimDate', new Date());
 
       // Mark this day as claimed
       localStorage.setItem(claimedKey, true);
@@ -92,8 +121,64 @@
 
       // Disable the button
       document.getElementById(`day${day}Button`).disabled = true;
+    
+      if (day === 1) {
+        localStorage.setItem('lastClaimDate', new Date());
+      }
+
+        // Congratulate the user and restart if it's the end of the week
+    if (day === 5) {
+        alert('Congratulations! You have completed a week streak.');
+        // Restart from day 1
+        resetDays();
+    }
     }
 
+    function resetDays() {
+    // Enable buttons for day 1 to 5
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById(`day${i}Button`).disabled = false;
+      localStorage.removeItem(`claimedDay${i}`);
+    }
+  }
+
+    function playGame() {
+      // Check if the game has already been completed
+      if (localStorage.getItem('gameCompleted')) {
+        alert('You have already completed the game and earned 10 coins.');
+        return;
+      }
+
+      // Implement your game logic here
+      // For simplicity, let's say the user earns 10 extra coins for playing the game
+      const extraCoins = 10;
+      let currentCoins = parseInt(localStorage.getItem('coinsCount')) || 0;
+      currentCoins += extraCoins;
+      localStorage.setItem('coinsCount', currentCoins);
+
+      alert(`You earned ${extraCoins} extra coins for playing the game!`);
+
+      // Mark the game as completed
+      localStorage.setItem('gameCompleted', true);
+
+      // Update the coin balance on the current page
+      updateCoinBalance();
+
+      // Update the coin balance on the dashboard if it's open
+      if (window.opener && !window.opener.closed) {
+        window.opener.updateCoinsCount();
+      }
+
+      // Disable the button
+      document.getElementById('gameButton').disabled = true;
+    }
+    function checkMilestone(coins) {
+    if (coins >= 50 && coins < 100) {
+      alert('Congratulations! You have unlocked a 50% off at Green Merchandise.');
+    }
+    // Add more milestones as needed
+  }
+  
     function updateCoinBalance() {
       const updatedCoinsCount = localStorage.getItem('coinsCount');
       const coinsCountElement = document.getElementById('coin_balance');
@@ -389,26 +474,67 @@
     <!--Here onwards-->
     <main id="main" class="main">
         <div class="pagetitle">
-          <!-- Previous title and navigation... -->
+          <h1>Daily Check In</h1>
+          <nav>
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a href="pages-register.html">Home</a></li>
+              <li class="breadcrumb-item active">Daily Check In</li>
+            </ol>
+          </nav>
         </div>
-    
-        <section class="section">
-            <!-- Daily check-in content -->
-            <div class="checkin-content">
-              <h2>Daily Check-In and Deals</h2>
       
-              <!-- Make up for check-in -->
-              <h3>Make up for check-in</h3>
-              <ul>
-                <li><button id="day1Button" onclick="collectCoins(1)">Day 1 [X5]</button></li>
-                <!-- Add more day buttons as needed -->
-              </ul>
-              <p>Your current coin balance: <span id="coin_balance">0</span> coins</p>
-
-              <!-- Redeem button -->
+        <div class="checkin-content">
+          <h2>Daily Check-In and Deals</h2>
+      
+          <!-- Display rewards for 5 days -->
+          <div class="day-box">
+            <div class="points-box">
+              <span class="points">Day 1</span>
+              <span class="points-count">2 coins</span>
             </div>
-          </section>
-    </main>
+            <button id="day1Button" onclick="collectCoins(1)">Redeem</button>
+          </div>
+      
+          <div class="day-box">
+            <div class="points-box">
+              <span class="points">Day 2</span>
+              <span class="points-count">4 coins</span>
+            </div>
+            <button id="day2Button" onclick="collectCoins(2)" disabled>Redeem</button>
+          </div>
+      
+          <div class="day-box">
+            <div class="points-box">
+              <span class="points">Day 3</span>
+              <span class="points-count">6 coins</span>
+            </div>
+            <button id="day3Button" onclick="collectCoins(3)" disabled>Redeem</button>
+          </div>
+      
+          <div class="day-box">
+            <div class="points-box">
+              <span class="points">Day 4</span>
+              <span class="points-count">8 coins</span>
+            </div>
+            <button id="day4Button" onclick="collectCoins(4)" disabled>Redeem</button>
+          </div>
+      
+          <div class="day-box">
+            <div class="points-box">
+              <span class="points">Day 5</span>
+              <span class="points-count">10 coins</span>
+            </div>
+            <button id="day5Button" onclick="collectCoins(5)" disabled>Redeem</button>
+          </div>
+      
+          <!-- Add more day boxes for each day as needed -->
+      
+          <p>Your current coin balance: <span id="coin_balance">0</span> coins</p>
+      
+          <!-- Game button -->
+          <button id="gameButton" class="game-button" onclick="playGame()">Play Game to Earn Extra Coins</button>
+        </div>
+      </main>
 
 
     <!-- ======= Footer ======= -->
