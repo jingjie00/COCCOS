@@ -242,7 +242,7 @@
             </li>
 
             <li>
-              <a id="signout" class="dropdown-item d-flex align-items-center" href="#">
+              <a id="signout" class="dropdown-item d-flex align-items-center" >
                 <i class="bi bi-box-arrow-right"></i>
                 <span>Sign Out</span>
               </a>
@@ -256,65 +256,65 @@
 
   </header><!-- End Header -->
 
-   <!-- ======= Sidebar ======= -->
-   <aside id="sidebar" class="sidebar">
+<!-- ======= Sidebar ======= -->
+<aside id="sidebar" class="sidebar">
+  
+  <ul class="sidebar-nav" id="sidebar-nav">
 
-    <ul class="sidebar-nav" id="sidebar-nav">
-
-      <li class="nav-heading">Pages</li>
+    <li class="nav-heading">Pages</li>
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="carbonux_claim.html">
+        <a class="nav-link collapsed" href="carbon_claim.html">
             <i class="bi bi-box2-heart"></i>
           <span>Claim</span>
         </a>
       </li><!-- End Claim Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="carbonux_share.html">
+        <a class="nav-link collapsed" href="carbon_share.html">
             <i class="bi bi-shop"></i>
           <span>Sell</span>
         </a>
       </li><!-- End Share Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="carbonux_ai.html">
+        <a class="nav-link collapsed" href="carbon_ai.html">
             <i class="bi bi-chat-dots-fill"></i>
           <span>ChatBot</span>
         </a>
       </li><!-- End Contact Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="carbonux_rewards.html">
+        <a class="nav-link collapsed" href="pages-register.html">
             <i class="bi bi-calendar3"></i>
           <span>Daily Check In</span>
         </a>
       </li><!-- End Daily Check In Page Nav -->
 
-      <li class="nav-item">
-        <a class="nav-link collapsed" href="pages-login.html">
-            <i class="bi bi-gift-fill"></i>
-          <span>Rewards</span>
-        </a>
-      </li><!-- End Rewards Page Nav -->
+    <li class="nav-item">
+      <a class="nav-link collapsed" href="carbonux_rewards.html">
+          <i class="bi bi-gift-fill"></i>
+        <span>Rewards</span>
+      </a>
+    </li><!-- End Rewards Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="carbonux_forum.html">
+        <a class="nav-link collapsed" href="carbon_forum.html">
             <i class="bi bi-newspaper"></i>
           <span>New and Forum</span>
         </a>
       </li><!-- End Forum Page Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="carbonux_event.html">
+        <a class="nav-link collapsed" href="pages-blank.html">
           <i class="bi bi-calendar-event"></i>
           <span>Event</span>
         </a>
       </li><!-- End News Page Nav -->
 
-    </ul>
+  </ul>
 
-  </aside><!-- End Sidebar-->
+</aside><!-- End Sidebar-->
 
   <main id="main" class="main">
 
@@ -340,8 +340,8 @@
           <p>Coins</p>
           <!-- Update the id to "coin_balance" for easier access -->
           <p id="coin_balance" style="font-size: 35px; font-weight: bold;">0</p>
-          <!-- Link to the daily check-in page (carbonux_rewards.html) -->
-          <a href="carbonux_rewards.html"><button type="button" class="btn btn-primary">Daily Check In</button></a>
+          <!-- Link to the daily check-in page (pages-register.html) -->
+          <a href="pages-register.html"><button type="button" class="btn btn-primary">Daily Check In</button></a>
         </div>        
         
       </div>
@@ -465,6 +465,147 @@
   <script src="assets/js/main.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="assets/js/share.js"></script>
+
+  <script
+src="https://www.gstatic.com/firebasejs/9.13.0/firebase-app-compat.js"></script>
+<script
+src="https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics-compat.js"></script>
+<script
+src="https://www.gstatic.com/firebasejs/9.13.0/firebase-auth-compat.js"></script>
+
+<script type="module">
+ const firebaseConfig = {
+    apiKey: "AIzaSyB9uNnnfi1KaKiUyC5wBnaARiXyp0h4W0E",
+    authDomain: "coccos.jingjietan.com",
+    projectId: "coc-cos",
+    storageBucket: "coc-cos.appspot.com",
+    messagingSenderId: "292386526510",
+    appId: "1:292386526510:web:1b0c7fa313fab62d4d56bf",
+    measurementId: "G-4L42J0Q8J4"
+  };
+
+// Initialize Firebase
+const app = firebase.initializeApp(firebaseConfig);
+const analytics = firebase.analytics(app);
+const auth = firebase.auth(app);
+console.log(auth.user)
+auth.onAuthStateChanged((user) => {
+  if (user) {
+    const userPhone = user.phoneNumber;
+    console.log(userPhone);
+    // Check if the user's email matches the pattern
+    if (userPhone && userPhone.endsWith('01138100852')) {
+      console.log('User signed in');
+    } else {
+      // User's email doesn't match the pattern
+      // Redirect to another page if needed
+      //window.location.href = 'carbonux_real_name.html';
+    }
+  } else {
+    // No user signed in, you can handle this case if needed
+    //window.location.href = 'carbonux_real_name.html';
+  }
+});
+
+function signOutUser() {
+  auth.signOut()
+    .then(function() {
+      // Sign-out successful.
+      console.log("User signed out successfully.");
+      // You can redirect to another page or perform other actions after sign-out.
+    })
+    .catch(function(error) {
+      // An error happened.
+      console.error("Sign-out error: " + error.message);
+    });
+}
+
+// Call the signOutUser function when a sign-out action is triggered, e.g., clicking a "Sign Out" button
+document.getElementById('signOutButton').addEventListener('click', function() {
+  signOutUser();
+  window.location.href="carbonux_homepage.html"
+});
+
+var agConnectConfig = 
+{
+	"agcgw":{
+		"backurl":"connect-dra.hispace.hicloud.com",
+		"url":"connect-dra.dbankcloud.cn",
+		"websocketbackurl":"connect-ws-dra.hispace.dbankcloud.com",
+		"websocketurl":"connect-ws-dra.hispace.dbankcloud.cn"
+	},
+	"agcgw_all":{
+		"CN":"connect-drcn.dbankcloud.cn",
+		"CN_back":"connect-drcn.hispace.hicloud.com",
+		"DE":"connect-dre.dbankcloud.cn",
+		"DE_back":"connect-dre.hispace.hicloud.com",
+		"RU":"connect-drru.hispace.dbankcloud.ru",
+		"RU_back":"connect-drru.hispace.dbankcloud.cn",
+		"SG":"connect-dra.dbankcloud.cn",
+		"SG_back":"connect-dra.hispace.hicloud.com"
+	},
+	"websocketgw_all":{
+		"CN":"connect-ws-drcn.hispace.dbankcloud.cn",
+		"CN_back":"connect-ws-drcn.hispace.dbankcloud.com",
+		"DE":"connect-ws-dre.hispace.dbankcloud.cn",
+		"DE_back":"connect-ws-dre.hispace.dbankcloud.com",
+		"RU":"connect-ws-drru.hispace.dbankcloud.ru",
+		"RU_back":"connect-ws-drru.hispace.dbankcloud.cn",
+		"SG":"connect-ws-dra.hispace.dbankcloud.cn",
+		"SG_back":"connect-ws-dra.hispace.dbankcloud.com"
+	},
+	"client":{
+		"cp_id":"80060200000074381",
+		"product_id":"388421841221643927",
+		"client_id":"1229689374900243712",
+		"client_secret":"074F4873DE595DE3B9F7D72E1D9D8754C2D86ECA8F3301DFE8CD0620AA892F0A",
+		"project_id":"388421841221643927",
+		"app_id":"172249065902672278",
+		"api_key":"DAEDAOF+RZOb1RXb7qSrg3dXPdTM3tH5kx14/bQlPPhkzDG5zJQFEVivE0bAs9HWMYmRaaxPLOHrPPiGBAqvcULAzrlPDh9cAsEOBA=="
+	},
+	"oauth_client":{
+		"client_id":"109036385",
+		"client_type":7
+	},
+	"app_info":{
+		"app_id":"172249065902672278"
+	},
+	"service":{
+		"analytics":{
+			"collector_url":"datacollector-dra.dt.hicloud.com,datacollector-dra.dt.dbankcloud.cn",
+			"collector_url_ru":"datacollector-drru.dt.dbankcloud.ru,datacollector-drru.dt.hicloud.com",
+			"collector_url_sg":"datacollector-dra.dt.hicloud.com,datacollector-dra.dt.dbankcloud.cn",
+			"collector_url_de":"datacollector-dre.dt.hicloud.com,datacollector-dre.dt.dbankcloud.cn",
+			"collector_url_cn":"datacollector-drcn.dt.hicloud.com,datacollector-drcn.dt.dbankcloud.cn",
+			"resource_id":"p1",
+			"channel_id":""
+		},
+		"edukit":{
+			"edu_url":"edukit.edu.cloud.huawei.com.cn",
+			"dh_url":"edukit.edu.cloud.huawei.com.cn"
+		},
+		"search":{
+			"url":"https://search-dra.cloud.huawei.com"
+		},
+		"cloudstorage":{
+			"storage_url_sg_back":"https://agc-storage-dra.cloud.huawei.asia",
+			"storage_url_ru_back":"https://agc-storage-drru.cloud.huawei.ru",
+			"storage_url_ru":"https://agc-storage-drru.cloud.huawei.ru",
+			"storage_url_de_back":"https://agc-storage-dre.cloud.huawei.eu",
+			"storage_url_de":"https://ops-dre.agcstorage.link",
+			"storage_url":"https://agc-storage-drcn.platform.dbankcloud.cn",
+			"storage_url_sg":"https://ops-dra.agcstorage.link",
+			"storage_url_cn_back":"https://agc-storage-drcn.cloud.huawei.com.cn",
+			"storage_url_cn":"https://agc-storage-drcn.platform.dbankcloud.cn"
+		},
+		"ml":{
+			"mlservice_url":"ml-api-dra.ai.dbankcloud.com,ml-api-dra.ai.dbankcloud.cn"
+		}
+	},
+	"region":"SG",
+	"configuration_version":"3.0"
+};
+</script>
 
 </body>
 

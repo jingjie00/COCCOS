@@ -76,121 +76,6 @@
       cursor: not-allowed;
     }
   </style>
-
-  <script>
-    function isNextDay(previousDate) {
-      const currentDate = new Date();
-      previousDate = new Date(previousDate);
-      return currentDate.getDate() !== previousDate.getDate() ||
-        currentDate.getMonth() !== previousDate.getMonth() ||
-        currentDate.getFullYear() !== previousDate.getFullYear();
-    }
-
-    function collectCoins(day) {
-      const coinsPerDay = day * 2; // Coins increase with each day
-      let currentCoins = parseInt(localStorage.getItem('coinsCount')) || 0;
-
-      // Check if the user already claimed coins for this day
-      const claimedKey = `claimedDay${day}`;
-      if (localStorage.getItem(claimedKey)) {
-        alert(`You have already redeemed ${coinsPerDay} coins for this day.`);
-        return;
-      }
-
-      // Check if it's the next day
-      if (day > 1 && !isNextDay(localStorage.getItem('lastClaimDate'))) {
-        alert('You can only claim coins for the next consecutive day.');
-        return;
-      }
-
-      // Claim coins for the day
-      currentCoins += coinsPerDay;
-      localStorage.setItem('coinsCount', currentCoins);
-      localStorage.setItem('lastClaimDate', new Date());
-
-      // Mark this day as claimed
-      localStorage.setItem(claimedKey, true);
-
-      // Update the coin balance on the current page
-      updateCoinBalance();
-
-      // Update the coin balance on the dashboard if it's open
-      if (window.opener && !window.opener.closed) {
-        window.opener.updateCoinsCount();
-      }
-
-      // Disable the button
-      document.getElementById(`day${day}Button`).disabled = true;
-    
-      if (day === 1) {
-        localStorage.setItem('lastClaimDate', new Date());
-      }
-
-        // Congratulate the user and restart if it's the end of the week
-    if (day === 5) {
-        alert('Congratulations! You have completed a week streak.');
-        // Restart from day 1
-        resetDays();
-    }
-    }
-
-    function resetDays() {
-    // Enable buttons for day 1 to 5
-    for (let i = 1; i <= 5; i++) {
-      document.getElementById(`day${i}Button`).disabled = false;
-      localStorage.removeItem(`claimedDay${i}`);
-    }
-  }
-
-    function playGame() {
-      // Check if the game has already been completed
-      if (localStorage.getItem('gameCompleted')) {
-        alert('You have already completed the game and earned 10 coins.');
-        return;
-      }
-
-      // Implement your game logic here
-      // For simplicity, let's say the user earns 10 extra coins for playing the game
-      const extraCoins = 10;
-      let currentCoins = parseInt(localStorage.getItem('coinsCount')) || 0;
-      currentCoins += extraCoins;
-      localStorage.setItem('coinsCount', currentCoins);
-
-      alert(`You earned ${extraCoins} extra coins for playing the game!`);
-
-      // Mark the game as completed
-      localStorage.setItem('gameCompleted', true);
-
-      // Update the coin balance on the current page
-      updateCoinBalance();
-
-      // Update the coin balance on the dashboard if it's open
-      if (window.opener && !window.opener.closed) {
-        window.opener.updateCoinsCount();
-      }
-
-      // Disable the button
-      document.getElementById('gameButton').disabled = true;
-    }
-    function checkMilestone(coins) {
-    if (coins >= 50 && coins < 100) {
-      alert('Congratulations! You have unlocked a 50% off at Green Merchandise.');
-    }
-    // Add more milestones as needed
-  }
-  
-    function updateCoinBalance() {
-      const updatedCoinsCount = localStorage.getItem('coinsCount');
-      const coinsCountElement = document.getElementById('coin_balance');
-      if (updatedCoinsCount !== null) {
-        coinsCountElement.innerText = updatedCoinsCount;
-      }
-    }
-
-    document.addEventListener('DOMContentLoaded', updateCoinBalance);
-  </script>
-
-
 </head>
 
 <body>
@@ -433,7 +318,7 @@
         </li><!-- End Share Page Nav -->
   
         <li class="nav-item">
-          <a class="nav-link collapsed" href="pages-contact.html">
+          <a class="nav-link collapsed" href="carbonux_ai.html">
               <i class="bi bi-chat-dots-fill"></i>
             <span>ChatBot</span>
           </a>
@@ -447,7 +332,7 @@
         </li><!-- End Daily Check In Page Nav -->
   
         <li class="nav-item">
-          <a class="nav-link collapsed" href="pages-login.html">
+          <a class="nav-link collapsed" href="carbonux_rewards.html">
               <i class="bi bi-gift-fill"></i>
             <span>Rewards</span>
           </a>
@@ -551,6 +436,121 @@
   </footer><!-- End Footer -->
 
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+
+  <script>
+    function isNextDay(previousDate) {
+      const currentDate = new Date();
+      previousDate = new Date(previousDate);
+      return currentDate.getDate() !== previousDate.getDate() ||
+        currentDate.getMonth() !== previousDate.getMonth() ||
+        currentDate.getFullYear() !== previousDate.getFullYear();
+    }
+
+    function collectCoins(day) {
+      const coinsPerDay = day * 2; // Coins increase with each day
+      let currentCoins = parseInt(localStorage.getItem('coinsCount')) || 0;
+
+      // Check if the user already claimed coins for this day
+      const claimedKey = `claimedDay${day}`;
+      if (localStorage.getItem(claimedKey)) {
+        alert(`You have already redeemed ${coinsPerDay} coins for this day.`);
+        return;
+      }
+
+      // Check if it's the next day
+      if (day > 1 && !isNextDay(localStorage.getItem('lastClaimDate'))) {
+        alert('You can only claim coins for the next consecutive day.');
+        return;
+      }
+
+      // Claim coins for the day
+      currentCoins += coinsPerDay;
+      localStorage.setItem('coinsCount', currentCoins);
+      localStorage.setItem('lastClaimDate', new Date());
+
+      // Mark this day as claimed
+      localStorage.setItem(claimedKey, true);
+
+      // Update the coin balance on the current page
+      updateCoinBalance();
+
+      // Update the coin balance on the dashboard if it's open
+      if (window.opener && !window.opener.closed) {
+        window.opener.updateCoinsCount();
+      }
+
+      // Disable the button
+      document.getElementById(`day${day}Button`).disabled = true;
+    
+      if (day === 1) {
+        localStorage.setItem('lastClaimDate', new Date());
+      }
+
+        // Congratulate the user and restart if it's the end of the week
+    if (day === 5) {
+        alert('Congratulations! You have completed a week streak.');
+        // Restart from day 1
+        resetDays();
+    }
+    }
+
+    function resetDays() {
+    // Enable buttons for day 1 to 5
+    for (let i = 1; i <= 5; i++) {
+      document.getElementById(`day${i}Button`).disabled = false;
+      localStorage.removeItem(`claimedDay${i}`);
+    }
+  }
+
+    function playGame() {
+      // Check if the game has already been completed
+      if (localStorage.getItem('gameCompleted')) {
+        alert('You have already completed the game and earned 10 coins.');
+        return;
+      }
+
+      // Implement your game logic here
+      // For simplicity, let's say the user earns 10 extra coins for playing the game
+      const extraCoins = 10;
+      let currentCoins = parseInt(localStorage.getItem('coinsCount')) || 0;
+      currentCoins += extraCoins;
+      localStorage.setItem('coinsCount', currentCoins);
+
+      alert(`You earned ${extraCoins} extra coins for playing the game!`);
+
+      // Mark the game as completed
+      localStorage.setItem('gameCompleted', true);
+
+      // Update the coin balance on the current page
+      updateCoinBalance();
+
+      // Update the coin balance on the dashboard if it's open
+      if (window.opener && !window.opener.closed) {
+        window.opener.updateCoinsCount();
+      }
+
+      // Disable the button
+      document.getElementById('gameButton').disabled = true;
+    }
+    function checkMilestone(coins) {
+    if (coins >= 50 && coins < 100) {
+      alert('Congratulations! You have unlocked a 50% off at Green Merchandise.');
+    }
+    // Add more milestones as needed
+  }
+  
+    function updateCoinBalance() {
+      const updatedCoinsCount = localStorage.getItem('coinsCount');
+      const coinsCountElement = document.getElementById('coin_balance');
+      if (updatedCoinsCount !== null) {
+        coinsCountElement.innerText = updatedCoinsCount;
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', updateCoinBalance);
+  </script>
+
 
   <!-- Vendor JS Files -->
   <script src="assets/vendor/apexcharts/apexcharts.min.js"></script>
