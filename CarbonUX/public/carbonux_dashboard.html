@@ -337,10 +337,9 @@
         </div>
 
         <div class="col" style="text-align: right;">
-          <p>Coins</p>
+          <p>Droplets</p>
           <!-- Update the id to "coin_balance" for easier access -->
-          <p id="coin_balance" style="font-size: 35px; font-weight: bold;">0</p>
-          <!-- Link to the daily check-in page (pages-register.html) -->
+          <span id="coin_balance" style="font-size: 35px; font-weight: bold;">0</span> <i class="bi bi-droplet-fill" style="color: rgb(118, 183, 245); font-size: 25px;"></i>
           <a href="carbonux_rewards.html"><button type="button" class="btn btn-primary">Daily Check In</button></a>
         </div>        
         
@@ -500,11 +499,11 @@ auth.onAuthStateChanged((user) => {
     } else {
       // User's email doesn't match the pattern
       // Redirect to another page if needed
-      //window.location.href = 'carbonux_real_name.html';
+      window.location.href = 'carbonux_real_name.html';
     }
   } else {
     // No user signed in, you can handle this case if needed
-    //window.location.href = 'carbonux_real_name.html';
+    window.location.href = 'carbonux_real_name.html';
   }
 });
 
