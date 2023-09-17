@@ -1,3 +1,7 @@
+const errorMessage = document.getElementById('errorMessage');
+const estimateCarbon = document.getElementById('estimateCarbon');
+const claimingCode = document.getElementById('inputCode');
+
 /////////////////// Display Success Message After Submit ///////////////////
 $(document).ready(function () {
   // Add a click event listener to the submit button
@@ -7,6 +11,7 @@ $(document).ready(function () {
 
     const form = document.getElementById("claimForm");
     if (form.checkValidity()) {
+
       // Display the success alert
       $("#successAlert").css("display", "block");
 
@@ -27,7 +32,6 @@ $(document).ready(function () {
       }, 3000); // 2000 milliseconds (2 seconds) delay
 
 
-
       //------------------------ Update dashboard Total Claim ----------------------------//
       // Retrieve Total Claim and Current Claim
       var total_claim = parseFloat(localStorage.getItem("credit_claim")) || 0;
@@ -43,7 +47,6 @@ $(document).ready(function () {
 
       // Update Total Credit Balance to dashboard
       localStorage.setItem("credit_balance", new_total_credit.toFixed(3));
-
     }
   });
 
@@ -57,9 +60,6 @@ $(document).ready(function () {
 
   document.getElementById('inputQR').addEventListener('change', function () {
     const selectedFile = this.files[0];
-    const errorMessage = document.getElementById('errorMessage');
-    const estimateCarbon = document.getElementById('estimateCarbon');
-    const claimingCode = document.getElementById('inputCode');
 
     if (selectedFile) {
 
@@ -93,7 +93,7 @@ $(document).ready(function () {
   
               // Store Temporary Carbon Credit Claim
               var carbon = qrCodeData.data;
-              localStorage.setItem("stored_credit_claim", carbon.toFixed(3));
+              localStorage.setItem("stored_credit_claim", parseFloat(carbon).toFixed(3));
               
             } else {
               errorMessage.style.display = 'block';
@@ -116,45 +116,74 @@ $(document).ready(function () {
   const inputReport = document.getElementById('inputReport');      
   const inputKg = document.getElementById('inputKg');
   const inputRecycle = document.getElementById('inputRecycle');
-  const estimateCarbon = document.getElementById('estimateCarbon');
   const RenewElec = document.getElementById('inputRenewEnergy');
   const curElec = document.getElementById('inputCurElec');
-  const inputTransport = document.getElementById('inputTransport');
-  const inputDistance = document.getElementById('inputDistance');
+  const QRexistence = document.getElementById('QRExist')
+  const recycleFields = document.getElementById('RecycleDiv');
+  const electricFields = document.getElementById('ElectricDiv');
+  const qrFields = document.getElementById('QRdiv');
+  const supportingFields = document.getElementById('inputDocument');
+
+  ///////////////////// QR code existence  ////////////////////////////////////
+  QRexistence.addEventListener('change', function () {
+    const qrexist = QRexistence.value;
+    
+    if(qrexist === 'yes'){
+      recycleFields.style.display = 'none';
+      electricFields.style.display = 'none';
+      qrFields.style.display = 'block';
+      supportingFields.setAttribute('required', 'false');  
+
+    }else if (qrexist === 'no'){
+
+      qrFields.style.display = 'none';
+      const selectedOption = inputReport.value;
+      var supportFields = document.getElementById('supportText');
+      supportingFields.setAttribute('required', 'true');  
+      estimateCarbon.textContent = '0.000 kg';
+      
+      if (selectedOption === 'recycle') {
+        recycleFields.style.display = 'block';
+        supportFields.textContent = 'Supporting Document (weight measurement, etc.)'
+        inputKg.value = null;
+  
+      } else if (selectedOption === 'electric') {
+        electricFields.style.display = 'block';
+        supportFields.textContent = 'Supporting Document (watt meter / electric bill, etc.)'
+        RenewElec.value = 0;
+        curElec.value = null;
+  
+      } else {
+        supportFields.textContent = 'Supporting Document'
+      }
+
+    }
+  });
+
 
   ///////////////////// Report Type change field  ////////////////////////////////////
   inputReport.addEventListener('change', function () {
     const selectedOption = inputReport.value;
-    const recycleFields = document.getElementById('RecycleDiv');
-    const electricFields = document.getElementById('ElectricDiv');
-    const transportFields = document.getElementById('TransportDiv');
     var supportFields = document.getElementById('supportText');
 
+    estimateCarbon.textContent = '0.000 kg';
+    
     recycleFields.style.display = 'none';
     electricFields.style.display = 'none';
-    transportFields.style.display = 'none';
-
-    estimateCarbon.textContent = '0.000 kg';
 
     // Show the relevant input fields based on the selected option
-    if (selectedOption === 'recycle') {
+    if (selectedOption === 'recycle' && QRexistence.value === 'no') {
       recycleFields.style.display = 'block';
-      supportFields.textContent = 'Supporting Document (weight measurement, etc.)'
+      supportFields.textContent = 'Supporting Document (weight measurement, etc.)';
       inputKg.value = null;
 
-    } else if (selectedOption === 'electric') {
-      electricFields.style.display = 'block';
-      supportFields.textContent = 'Supporting Document (watt meter / electric bill, etc.)'
+    } else if (selectedOption === 'electric'&& QRexistence.value === 'no') {
+      supportFields.textContent = 'Supporting Document (watt meter / electric bill, etc.)';
       RenewElec.value = 0;
       curElec.value = null;
 
-    } else if (selectedOption === 'transport') {
-      transportFields.style.display = 'block';
-      supportFields.textContent = 'Supporting Document (receipt, etc.)'
-      inputDistance.value = 0;
-
     } else {
-      supportFields.textContent = 'Supporting Document (receipt, etc.)'
+      supportFields.textContent = 'Supporting Document';
     }
 
   });
@@ -231,31 +260,3 @@ $(document).ready(function () {
 
   RenewElec.addEventListener('input', updateElectricCarbon);
   curElec.addEventListener('input', updateElectricCarbon);
-
-  
-  ///////////////////// Function to update electric carbon calculation  ////////////////////////////////////
-  function updateTransportCarbon() {
-    const transportConstants = {
-      'walk': 0.007,
-      'bicycle': 0.005,
-      'train': 0.003,
-      'bus': 0.002,
-      'others': 0.001,
-    };
-
-    const selectedTransport = inputTransport.value;
-    const distance = parseFloat(inputDistance.value);
-
-    // Check if the selected transport type is in the constants
-    if (selectedTransport in transportConstants) {
-      // Calculate the result using the selected transport's constant
-      const result = transportConstants[selectedTransport] * distance;
-      estimateCarbon.textContent = result.toFixed(3) + ' kg';
-
-      // Store Temporary Carbon Credit Claim
-      localStorage.setItem("stored_credit_claim", result.toFixed(3));
-    }
-  }
-
-  inputDistance.addEventListener('input', updateTransportCarbon);
-  inputTransport.addEventListener('change', updateTransportCarbon);

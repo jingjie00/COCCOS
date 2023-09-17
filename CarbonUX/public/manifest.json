@@ -2,15 +2,17 @@
     "name": "COCCOS",
     "short_name": "CarbonUX",
     "description": "COCCOS - CarbonUX",
-    "start_url": "/",
+    "start_url": "/index.html",
     "display": "standalone",
     "background_color": "#ffffff",
     "theme_color": "#000000",
+    "scope": "/",
     "icons": [
         {
-            "src": "/assets/img/CarbonUX-logo.png",
-            "sizes": "1483x1483",
-            "type": "image/png"
+            "src": "fav.png",
+            "sizes": "330x330",
+            "type": "image/png",
+            "purpose": "any"
         }
     ]
 }
