@@ -358,68 +358,106 @@
 
     <!--Here onwards-->
     <main id="main" class="main">
-        <div class="pagetitle">
-          <h1>Daily Check In</h1>
-          <nav>
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="carbonux_dashboard.html">Home</a></li>
-              <li class="breadcrumb-item active">Daily Check In</li>
-            </ol>
-          </nav>
-        </div>
+      <div class="pagetitle">
+        <h1>Rewards</h1>
+        <nav>
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="carbonux_dashboard.html">Home</a></li>
+            <li class="breadcrumb-item active">Rewards</li>
+          </ol>
+        </nav>
+      </div><!-- End Page Title -->
       
-        <div class="checkin-content">
-          <h2>Daily Check-In and Deals</h2>
-      
-          <!-- Display rewards for 5 days -->
-          <div class="day-box">
-            <div class="points-box">
-              <span class="points">Day 1</span>
-              <span class="points-count">2 coins</span>
-            </div>
-            <button id="day1Button" class="btn btn-primary" onclick="collectCoins(1)">Redeem</button>
-          </div>
-      
-          <div class="day-box">
-            <div class="points-box">
-              <span class="points">Day 2</span>
-              <span class="points-count">4 coins</span>
-            </div>
-            <button id="day2Button" class="btn" onclick="collectCoins(2)" disabled>Redeem</button>
-          </div>
-      
-          <div class="day-box">
-            <div class="points-box">
-              <span class="points">Day 3</span>
-              <span class="points-count">6 coins</span>
-            </div>
-            <button id="day3Button" onclick="collectCoins(3)" disabled>Redeem</button>
-          </div>
-      
-          <div class="day-box">
-            <div class="points-box">
-              <span class="points">Day 4</span>
-              <span class="points-count">8 coins</span>
-            </div>
-            <button id="day4Button" onclick="collectCoins(4)" disabled>Redeem</button>
-          </div>
-      
-          <div class="day-box">
-            <div class="points-box">
-              <span class="points">Day 5</span>
-              <span class="points-count">10 coins</span>
-            </div>
-            <button id="day5Button" onclick="collectCoins(5)" disabled>Redeem</button>
-          </div>
-      
-          <!-- Add more day boxes for each day as needed -->
-      
-          <p>Your current coin balance: <span id="coin_balance">0</span> coins</p>
-      
-          <!-- Game button -->
-          <button id="gameButton" class="game-button" onclick="playGame()">Play Game to Earn Extra Coins</button>
-        </div>
-      </main>
+      <p style="font-size: 14px; color: black; ">Current droplets balance: &ensp;
+        <button id="wateringcan" class="rounded-pill" style="background-color: rgb(229, 245, 255); border-color: orangered;" disabled onclick="watering()">
+          <img width="40" height ="40" src="assets/img/trees/watering-can.png">
+          <span id="coin_balance">0</span> <i class="bi bi-droplet-fill" style="color: rgb(118, 183, 245);"></i>
+        </button>
+      </p>
+      <div class="checkin-wrapper">
+        <ul class="carousel">
+          <li class="card" id="day1Button" onclick="collectCoins(1)">
+            <span style="font-weight: bolder;">+ 2</span>
+            <i id="day1Icon" class="bi bi-droplet"></i>
+            <span style="font-size: smaller; font-weight: 100; padding-top: 10px;">Day 1</span>
+          </li>
+          <li class="card" id="day2Button" onclick="collectCoins(2)">
+            <span style="font-weight: bolder;">+ 4</span>
+            <i id="day2Icon" class="bi bi-droplet"></i>
+            <span style="font-size: smaller; font-weight: 100; padding-top: 10px;">Day 2</span>
+          </li>
+          <li class="card" id="day3Button" onclick="collectCoins(3)">
+            <span style="font-weight: bolder;">+ 6</span>
+            <i id="day3Icon" class="bi bi-droplet"></i>
+            <span style="font-size: smaller; font-weight: 100; padding-top: 10px;">Day 3</span>
+          </li>
+          <li class="card" id="day4Button" onclick="collectCoins(4)">
+            <span style="font-weight: bolder;">+ 8</span>
+            <i id="day4Icon" class="bi bi-droplet"></i>
+            <span style="font-size: smaller; font-weight: 100; padding-top: 10px;">Day 4</span>
+          </li>
+          <li class="card" id="day5Button" onclick="collectCoins(5)">
+            <span style="font-weight: bolder;">+ 10</span>
+            <i id="day5Icon" class="bi bi-droplet"></i>
+            <span style="font-size: smaller; font-weight: 100; padding-top: 10px;">Day 5</span>
+          </li>
+        </ul>
+      </div>
+
+      <h5 style="text-align: center; font-family: Verdana; font-weight: bold; color: green;">Virtual Forest</h5>
+      <div class="forest-wrapper">
+        <ul class="carousel">
+          <li class="card">
+            <img id="treeImage" src="assets/img/trees/tree1.png">
+          </li>
+          <li class="card">
+            <img id="emptyImage" src="assets/img/trees/empty.png">
+          </li>
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+        </ul>
+        <ul class="carousel">
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+        </ul>
+        <ul class="carousel">
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+          <li class="card">
+            <img src="assets/img/trees/empty.png">
+          </li>
+        </ul>
+      </div>
+
+      <div class="progress mt-3">
+        <div class="progress-bar progress-bar-striped bg-info progress-bar-animated" id="wateringprogress" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+      </div>  
+      <div style="text-align: center; margin-top: 10px;">
+        <button id="harvest" class="rounded-pill" style="background-color: rgb(229, 245, 255);" disabled onclick="harvest()"><img width="40" height ="40" src="assets/img/trees/harvest.png"><span>Harvest</span></button>
+      </div>
+
+    </main><!-- End #main -->
 
 
     <!-- ======= Footer ======= -->
@@ -480,47 +518,48 @@
         window.opener.updateCoinsCount();
       }
 
-      // Disable the button
-      document.getElementById(`day${day}Button`).disabled = true;
-    
+      // Disable the Droplets Redeem button
+      const cardElement = document.getElementById(`day${day}Button`);
+      if (cardElement) {
+        cardElement.style.backgroundColor = 'lightgrey';
+        cardElement.style.color = "grey";
+        const iconElement = document.getElementById(`day${day}Icon`);
+        if (iconElement) {
+          iconElement.classList.replace("bi-droplet", "bi-droplet-fill");
+        }
+      }
+
+      const getCoinBalance = parseInt(localStorage.getItem('coinsCount'));
+      const water = document.getElementById("wateringcan");
+      if (getCoinBalance > 0) {
+        water.disabled = false;  
+      }
+
       if (day === 1) {
         localStorage.setItem('lastClaimDate', new Date());
       }
 
         // Congratulate the user and restart if it's the end of the week
-    if (day === 5) {
-        alert('Congratulations! You have completed a week streak.');
-        // Restart from day 1
-        resetDays();
-    }
-    }
+      if (day === 5) {
+          alert('Congratulations! You have completed a week streak.');
+          // Restart from day 1
+          resetDays();
+      }
+      }
 
     function resetDays() {
     // Enable buttons for day 1 to 5
     for (let i = 1; i <= 5; i++) {
       document.getElementById(`day${i}Button`).disabled = false;
       localStorage.removeItem(`claimedDay${i}`);
-    }
-  }
-
-    function playGame() {
-      // Check if the game has already been completed
-      if (localStorage.getItem('gameCompleted')) {
-        alert('You have already completed the game and earned 10 coins.');
-        return;
       }
+    }
 
+    function watering() {
       // Implement your game logic here
       // For simplicity, let's say the user earns 10 extra coins for playing the game
-      const extraCoins = 10;
-      let currentCoins = parseInt(localStorage.getItem('coinsCount')) || 0;
-      currentCoins += extraCoins;
+      let currentCoins = 0;
       localStorage.setItem('coinsCount', currentCoins);
-
-      alert(`You earned ${extraCoins} extra coins for playing the game!`);
-
-      // Mark the game as completed
-      localStorage.setItem('gameCompleted', true);
 
       // Update the coin balance on the current page
       updateCoinBalance();
@@ -530,16 +569,41 @@
         window.opener.updateCoinsCount();
       }
 
-      // Disable the button
-      document.getElementById('gameButton').disabled = true;
+      // Show watering progress
+      const updateWatering = document.getElementById("wateringprogress");
+      updateWatering.style.width = '100%';
+      updateWatering.setAttribute('aria-valuenow', '100');
+      updateWatering.textContent = '100%';
+
+      // Disable Watering Button
+      const water = document.getElementById("wateringcan");
+      water.disabled = true;  
+
+      // Enable Harvest Button
+      const HarvestButton = document.getElementById("harvest");
+      if (updateWatering.textContent == '100%'){
+        HarvestButton.disabled = false;
+        HarvestButton.style.borderColor = "orangered";
+      }
     }
-    function checkMilestone(coins) {
-    if (coins >= 50 && coins < 100) {
-      alert('Congratulations! You have unlocked a 50% off at Green Merchandise.');
-    }
-    // Add more milestones as needed
-  }
   
+    function harvest() {
+      const treeImage = document.getElementById("treeImage");
+      const emptyImage = document.getElementById("emptyImage");
+
+      treeImage.src = "assets/img/trees/tree2.png";
+      emptyImage.src = "assets/img/trees/tree1.png"
+
+      const HarvestButton = document.getElementById("harvest");
+      HarvestButton.disabled = true;
+
+      const updateWatering = document.getElementById("wateringprogress");
+      updateWatering.style.width = '0%';
+      updateWatering.setAttribute('aria-valuenow', '0');
+      updateWatering.textContent = '0%';
+    }
+
+
     function updateCoinBalance() {
       const updatedCoinsCount = localStorage.getItem('coinsCount');
       const coinsCountElement = document.getElementById('coin_balance');
