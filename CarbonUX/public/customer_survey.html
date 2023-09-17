@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Survey</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            font-weight: bold;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="number"],
+        .form-group input[type="radio"],
+        .form-group select {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+
+        .form-group input[type="radio"] {
+            width: auto;
+            margin-right: 10px;
+        }
+
+        .form-group .radio-label {
+            display: inline-block;
+        }
+
+        .btn {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" style="background-image: url(assets/img/slide/slide-1.png);">
+        <h2>User Survey</h2>
+        <img class="animate__animated animate__fadeInUp img-fluid"
+                      src="assets/img/COCCOS-logo2.png" alt="COCCOS"
+                      width="400px"
+                      style="border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); margin-bottom: 10px;"">
+        <form action="#" method="post">
+            <div class="form-group">
+                <label for="email">1) Email:</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="age">2) Age:</label>
+                <input type="number" id="age" name="age" required>
+            </div>
+            <div class="form-group">
+                <label>3) Are you aware of sustainable activities?</label><br>
+                <div class="radio-label">
+                    <input type="radio" id="aware-1" name="awareness" value="1">
+                    <label for="aware-1">1</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="aware-2" name="awareness" value="2">
+                    <label for="aware-2">2</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="aware-3" name="awareness" value="3">
+                    <label for="aware-3">3</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="aware-4" name="awareness" value="4">
+                    <label for="aware-4">4</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="aware-5" name="awareness" value="5">
+                    <label for="aware-5">5</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>4) Do you understand Sustainable Development Goals (SDGs)?</label><br>
+                <div class="radio-label">
+                    <input type="radio" id="sdg-1" name="sdg" value="1">
+                    <label for="sdg-1">1</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="sdg-2" name="sdg" value="2">
+                    <label for="sdg-2">2</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="sdg-3" name="sdg" value="3">
+                    <label for="sdg-3">3</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="sdg-4" name="sdg" value="4">
+                    <label for="sdg-4">4</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="sdg-5" name="sdg" value="5">
+                    <label for="sdg-5">5</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="support-activities">5) Do you support sustainability activities when given an incentive?</label>
+                <select id="support-activities" name="support_activities">
+                    <option value="yes">Yes</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="support-coccos">6) Do you support COCCOS idea?</label><br>
+                <div class="radio-label">
+                    <input type="radio" id="coccos-yes" name="coccos_support" value="yes">
+                    <label for="coccos-yes">Yes</label>
+                </div>
+                <div class="radio-label">
+                    <input type="radio" id="coccos-no" name="coccos_support" value="no">
+                    <label for="coccos-no">No</label>
+                </div>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
