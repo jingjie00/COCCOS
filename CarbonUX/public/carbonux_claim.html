@@ -349,20 +349,6 @@
               <div class="row">
                 <form class="row g-2"  method="POST" action="#" id="claimForm">
 
-                  <!-- Report <option selected>Select the report category</option>-->
-                  <div class="col-12" style="padding-top: 2px;">
-                    <div class="form-floating">
-                      <select class="form-select" aria-label="Default select example" id="inputReport">
-
-                        <option selected value="recycle">Recycle</option>
-                        <option value="product">Purchase Eco-friendly Products</option>
-                        <option value="electric">Reduce Electricity Consumption</option>
-                        <option value="transport">Huawei Healthy Steps</option>
-                      </select>
-                      <label for="inputReport">Reports</label>
-                    </div>
-                  </div>
-
                   <!-- QR code existence -->
                   <div class="col-12" style="padding-top: 2px;">
                     <div class="form-floating">
@@ -372,6 +358,20 @@
                         <option value="no">No</option>
                       </select>
                       <label for="QRExist">Do you have QR code?</label>
+                    </div>
+                  </div>
+                                    
+                  <!-- Report <option selected>Select the report category</option>-->
+                  <div class="col-12" style="padding-top: 2px;">
+                    <div class="form-floating">
+                      <select class="form-select" aria-label="Default select example" id="inputReport">
+
+                        <option value="recycle">Recycle</option>
+                        <option value="product">Purchase Eco-friendly Products</option>
+                        <option value="electric">Reduce Electricity Consumption</option>
+                        <option selected value="transport">Huawei Healthy Steps</option>
+                      </select>
+                      <label for="inputReport">Reports</label>
                     </div>
                   </div>
 
@@ -452,48 +452,6 @@
                     </div>
                   </div>
 
-                  <!-- Description -->
-                  <div class="col-12" style="padding-top: 2px;">
-                    <div class="form-floating">
-                      <textarea class="form-control" id="inputDescription" placeholder="Description"
-                        style="height: 180px;" required></textarea>
-                      <label for="inputDescription">Description</label>
-                    </div>
-                  </div>
-
-                  <!-- Location -->
-                  <div class="col-12" style="padding-top: 2px;">
-                    <div class="form-floating">
-                      <input type="text" class="form-control" id="inputLocation" placeholder="Location" required>
-                      <label for="inputLocation">Location</label>
-                    </div>
-                  </div>
-
-                  <!-- Date & Time -->
-                  <div class="col-md-6" style="padding-top: 2px;">
-                    <div class="form-floating">
-                      <input type="date" class="form-control" id="inputDate" style="padding-bottom: 2px;" required>
-                      <label for="inputDate">Date</label>
-                    </div>
-                  </div>
-
-                  <div class="col-md-6" style="padding-top: 2px;">
-                    <div class="form-floating">
-                      <input type="time" class="form-control" id="inputTime" style="padding-bottom: 2px;" required>
-                      <label for="inputTime">Time</label>
-                    </div>
-                  </div>
-
-                  <!-- Supporting Document -->
-                  <div class="col-12" style="padding-top: 2px;">
-                    <div class="form-floating">
-                      <input type="file" class="form-control" id="inputDocument" style="margin-bottom: 10px; " multiple>
-                      <label for="inputDocument" style="padding-top: 9px;" id="supportText">Supporting Document (weight
-                        measurement, etc.)</label>
-                    </div>
-                  </div>
-                  <p style="font-size: 14px; color: #888;"><strong>Important Notice:</strong> Please ensure the accuracy of your submitted information. Inaccurate claims may result in credit retrieval and account suspension. Thank you for your cooperation.</p>
-
                   <div class="text-center" style="margin-top: 50px;">
                     <button type="submit" class="btn btn-primary" id="submitButton" style="background-color: rgb(1, 42, 112); border-color: rgb(1, 42, 112);">Submit</button>
                     <button type="reset" class="btn btn-secondary" id="resetButton">Reset</button>
@@ -512,7 +470,7 @@
           <!-- Estimated Carbon Claiming Credit -->
           <div class="card">
             <div class="card-body" style="padding-top: 50px; padding-bottom: 50px;">
-              <h5 style="font-weight: bold;">Estimate Carbon Claiming Credit</h5>
+              <h6 style="font-weight: bold;">Estimate Carbon Claiming Credit</h6>
               <img src="assets/img/carbon-credit.png" style="height: 60px; width: 75px; vertical-align:bottom;">
               <span id="estimateCarbon" style="font-size: 30px; font-weight: bold;">0.000 kg</span>
             </div>

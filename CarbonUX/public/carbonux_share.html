@@ -351,8 +351,36 @@
           <!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button> -->
         </div>
 
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Consumer Carbon Credit Market Price</h5>
+            <!-- Line Chart -->
+            <canvas id="SellChart" style="max-height: 400px;"></canvas>
+            <script>
+              document.addEventListener("DOMContentLoaded", () => {
+                new Chart(document.querySelector('#SellChart'), {
+                  type: 'line',
+                  data: {
+                    labels: ['12 Sept', '13 Sept', '14 Sept', '15 Sept', '16 Sept', '17 Sept', '18 Sept'],
+                    datasets: [{
+                      label: 'Sell Price',
+                      data: [3.19, 3.21, 3.35, 3.40, 3.42, 3.33, 3.2],
+                      fill: false,
+                      borderColor: 'lightblue',
+                      tension: 0.1,
+                    }]
+                  },
+                });
+
+              });
+            </script>
+            <!-- End Line CHart -->
+
+          </div>
+        </div>
+
         <!-- Estimated Carbon Claiming Credit -->
-        <div class="col-lg-5" style="height: 520px; text-align: center;">
+        <div style=" text-align: center; width: 100%;">
           <div class="card">
             <div class="card-body" style="padding-top: 50px; padding-bottom: 50px;">
               <h5 style="font-weight: bold;">Your available Carbon Credit</h5>
@@ -362,39 +390,10 @@
           </div>
 
 
-          <div class="card">
-            <div class="card-body">
-              <h5 class="card-title">Consumer Carbon Credit Market Price</h5>
-              <!-- Line Chart -->
-              <canvas id="SellChart" style="max-height: 400px;"></canvas>
-              <script>
-                document.addEventListener("DOMContentLoaded", () => {
-                  new Chart(document.querySelector('#SellChart'), {
-                    type: 'line',
-                    data: {
-                      labels: ['12 Sept', '13 Sept', '14 Sept', '15 Sept', '16 Sept', '17 Sept', '18 Sept'],
-                      datasets: [{
-                        label: 'Sell Price',
-                        data: [3.19, 3.21, 3.35, 3.40, 3.42, 3.33, 3.2],
-                        fill: false,
-                        borderColor: 'lightblue',
-                        tension: 0.1,
-                      }]
-                    },
-                  });
-
-                });
-              </script>
-              <!-- End Line CHart -->
-
-            </div>
-          </div>
 
         </div>
 
         <!-- Fill in Form -->
-        <div class="col-lg-6">
-
           <div class="card">
             <div class="card-body">
               <!-- <h5 class="card-title" style="margin-bottom:0%">Carbon Offset Credit Share Form</h5> -->
@@ -450,7 +449,6 @@
               </div>
             </div>
           </div>
-        </div>
 
       </div>
 
