@@ -237,7 +237,14 @@ privacyPolicyUrl: 'privacy.html'
 };
 
 ui.start('#firebaseui-auth-container', uiConfig);
+
 localStorage.setItem("passtemp", "false");
+//delete local storage
+localStorage.removeItem("coinsCount");
+localStorage.removeItem("claimedDay1");
+localStorage.removeItem("claimedKey");
+localStorage.removeItem("lastClaimDate");
+
 // when id=bypass is clicked, console log
 document.getElementById("bypass").addEventListener("click", function(){
 	//write "hello world" in local storage
