@@ -240,10 +240,7 @@ ui.start('#firebaseui-auth-container', uiConfig);
 
 localStorage.setItem("passtemp", "false");
 //delete local storage
-localStorage.removeItem("coinsCount");
-localStorage.removeItem("claimedDay1");
-localStorage.removeItem("claimedKey");
-localStorage.removeItem("lastClaimDate");
+localStorage.clear();
 
 // when id=bypass is clicked, console log
 document.getElementById("bypass").addEventListener("click", function(){
