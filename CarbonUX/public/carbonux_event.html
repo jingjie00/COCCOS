@@ -291,10 +291,7 @@
                         <h5 class="modal-title" id="claimModalLabel">Congratulations!</h5>
                     </div>
                     <div class="modal-body">
-                        You've successfully claimed your QR code. Please proceed to the claim page to claim your carbon credit.
-                    </div>
-                    <div class="modal-footer">
-                        <a href="carbonux_claim.html" class="btn btn-primary">Proceed to Claim Page</a>
+                        You've successfully get your carbon credits!
                     </div>
                 </div>
             </div>
@@ -361,24 +358,10 @@
 
             // Set the claim status in localStorage
             localStorage.setItem('rewardClaimed', 'true');
-
-            // Get the text value for the QR code
-            const qrText = '1.5';
-
-            // Create a QRious instance
-            const qr = new QRious({
-                value: qrText,
-                size: 200, // Adjust the size as needed
-            });
-
-            // Generate a data URL for the QR code
-            const qrDataURL = qr.toDataURL('image/png');
-
-            // Create a link to download the QR code
-            const link = document.createElement('a');
-            link.href = qrDataURL;
-            link.download = 'HS00500.png'; // File name for download
-            link.click();
+            
+            var creditBalance = parseFloat(localStorage.getItem("credit_balance")) || 0;
+            creditBalance += 10;
+            localStorage.setItem("credit_balance", creditBalance.toFixed(3));
         });
 
     </script>

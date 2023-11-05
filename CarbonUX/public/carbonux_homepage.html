@@ -186,15 +186,16 @@ src="https://www.gstatic.com/firebasejs/9.13.0/firebase-analytics-compat.js"></s
 src="https://www.gstatic.com/firebasejs/9.13.0/firebase-auth-compat.js"></script>
 
 <script type="module">
- const firebaseConfig = {
-    apiKey: "AIzaSyB9uNnnfi1KaKiUyC5wBnaARiXyp0h4W0E",
-    authDomain: "coccos.jingjietan.com",
-    projectId: "coc-cos",
-    storageBucket: "coc-cos.appspot.com",
-    messagingSenderId: "292386526510",
-    appId: "1:292386526510:web:1b0c7fa313fab62d4d56bf",
-    measurementId: "G-4L42J0Q8J4"
-  };
+const firebaseConfig = {
+  apiKey: "AIzaSyB9uNnnfi1KaKiUyC5wBnaARiXyp0h4W0E",
+  authDomain: "coc-cos.firebaseapp.com",
+  databaseURL: "https://coc-cos-default-rtdb.asia-southeast1.firebasedatabase.app",
+  projectId: "coc-cos",
+  storageBucket: "coc-cos.appspot.com",
+  messagingSenderId: "292386526510",
+  appId: "1:292386526510:web:1b0c7fa313fab62d4d56bf",
+  measurementId: "G-4L42J0Q8J4"
+};
 
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
@@ -221,12 +222,11 @@ var uiConfig = {
 },
 // Will use popup for IDP Providers sign-in flow instead of the default, redirect.
 signInFlow: 'popup',
-autoUpgradeAnonymousUsers: true,
 signInSuccessUrl: './carbonux_dashboard.html',
 signInOptions: [
 	// Leave the lines as is for the providers you want to offer your users.
 	
-	firebase.auth.EmailAuthProvider.PROVIDER_ID,
+	firebase.auth.GoogleAuthProvider.PROVIDER_ID,
 	firebase.auth.PhoneAuthProvider.PROVIDER_ID,
 	firebaseui.auth.AnonymousAuthProvider.PROVIDER_ID
 ],
